@@ -24,6 +24,7 @@ public class User {
 		this.pw=pw;
 		this.name=name;
 		this.code=code;
+		accs=new ArrayList();
 	}
 	
 	// getter & setter 

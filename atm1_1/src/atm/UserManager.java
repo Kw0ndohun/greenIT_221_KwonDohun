@@ -74,5 +74,27 @@ public class UserManager {
 		return code;
 	}
 	
-	
+	//로그인 아이디확인
+	public boolean loginCheck(String id,String pw) {
+		for(int n=0; n<users.size(); n++) {
+			if(users.get(n).getId().equals(id)&&users.get(n).getPw().equals(pw)) {
+				Bank.log=n;
+				return true;
+			}
+		}
+		return false;
+	}
+	//유저코드 획득
+	public int getUserCode() {
+		int getCode=users.get(Bank.log).getCode();
+		return getCode;
+	}
+	//유저 보유계좌 수 확인
+	public int getUserAccCnt() {
+		int getAccCnt=users.get(Bank.log).getAccs().size();
+		return getAccCnt;
+	}
+	public static ArrayList<User> getUsers() {
+		return users;
+	}
 }

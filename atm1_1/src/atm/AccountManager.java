@@ -6,7 +6,7 @@ public class AccountManager {
 	int code=1000000;
 	public static AccountManager instance = new AccountManager();
 	private AccountManager() {}
-	
+	 UserManager um= UserManager.instance;
 	private ArrayList<Account> accs = new ArrayList<Account>();
 	
 	public void addAcc() {
@@ -47,6 +47,42 @@ public class AccountManager {
 			System.out.println(UserManager.instance.getUsers().get(Bank.log).getAccs().get(n));
 		}
 	}
-	
+	//입금
+	public void deposit() {
+		System.out.println("입금할 계좌번호:");
+		int accNum=Bank.scan.nextInt();
+		
+		if(findAccNum(accNum)>=0) {
+			System.out.println("입금할 금액:");
+			int inMoney=Bank.scan.nextInt();
+			
+		}
+		
+	}
+	//출금
+	public void withdraw() {
+		System.out.println("출금할 계좌번호:");
+		int accNum=Bank.scan.nextInt();
+		if(findAccNum(accNum)>=0) {
+			System.out.println("출금할 금액:");
+			int outMoney=Bank.scan.nextInt();
+			
+		}
+	}
+	//이체
+	public void transfer() {
+		System.out.println("이체할 계좌번호:");
+		int accNum=Bank.scan.nextInt();
+		if(findAccNum(accNum)>=0) {
+			System.out.println("이체할 금액:");
+			int sendMoney=Bank.scan.nextInt();
+			
+		}
+	}
+	//get AccNum
+	public int findAccNum(int accNum) {
+		if(um.getAccCode(accNum)>=0) return um.getAccCode(accNum);
+		else return -1;
+	}
 	
 }

@@ -97,4 +97,21 @@ public class UserManager {
 	public static ArrayList<User> getUsers() {
 		return users;
 	}
+	
+	public int getAccCode(int AccNum) {
+		for(int n=0; n<users.get(Bank.log).getAccs().size(); n++) {
+			if(users.get(Bank.log).getAccs().get(n).getAccNum()==AccNum) {
+				System.out.println("계좌 조회 성공");
+				return n;
+			}
+		}
+		System.out.println("계좌 조회 실패");
+		return -1;
+	}
+	
+	
+	//계정 변경
+	public void changeId() {
+		
+	}
 }

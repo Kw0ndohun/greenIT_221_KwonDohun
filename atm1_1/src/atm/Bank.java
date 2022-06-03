@@ -25,7 +25,9 @@ public class Bank {
 		System.out.println("5.계좌개설");
 		System.out.println("6.계좌제거");
 		System.out.println("7.계좌조회");
-		System.out.println("");
+		System.out.println("8.입금");
+		System.out.println("9.출금");
+		System.out.println("10.이체");
 	}
 	//메뉴선택
 	public void selectMenu() {
@@ -37,6 +39,9 @@ public class Bank {
 		else if(sel==5&&this.log>-1) AccountManager.instance.addAcc();
 		else if(sel==6&&this.log>-1) AccountManager.instance.delAcc();
 		else if(sel==7&&this.log>-1) AccountManager.instance.printAcc();
+		else if(sel==8&&this.log>-1) AccountManager.instance.printAcc();
+		else if(sel==9&&this.log>-1) AccountManager.instance.printAcc();
+		else if(sel==10&&this.log>-1) AccountManager.instance.printAcc();
 	}
 	
 	//로그인

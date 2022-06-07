@@ -10,6 +10,6 @@ public class User {
 	}
 	
 	void print() {
-		System.out.println("["+ id + "ฑÝพื : "+ money);
+		System.out.println("["+ id + " : "+ money);
 	}
 }

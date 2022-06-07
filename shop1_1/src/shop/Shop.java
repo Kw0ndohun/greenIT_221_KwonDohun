@@ -10,7 +10,7 @@ public class Shop {
 	void mainMenu() {
 		boolean run=true;
 		while(run) {
-			System.out.println("[1.°¡ÀÔ] [2.Å»Åğ] [3.·Î±×ÀÎ] [4.·Î±×¾Æ¿ô]"+"\n[100.°ü¸®ÀÚ] [0.Á¾·á]");
+			System.out.println("[1.ì „ì²´ì•„ì´í…œ] [2.ì•„ì´í…œì¶”ê°€] [3.ì•„ì´í…œì‚­ì œ] [0.ë’¤ë¡œê°€ê¸°]");
 			int sel= scan.nextInt();
 			if (sel==1) {
 				um.join();
@@ -35,7 +35,7 @@ public class Shop {
 	void cartMenu() {
 		boolean run = true;
 		while(run) {
-			System.out.println("[1.³» Àå¹Ù±¸´Ï] [2.»èÁ¦] [3.±¸ÀÔ] [0.µÚ·Î°¡±â]");
+			System.out.println("[1.ì „ì²´ìœ ì €] [2.ìœ ì €ì¶”ê°€] [3.ìœ ì €ì‚­ì œ] [0.ë’¤ë¡œê°€ê¸°]");
 			int sel=scan.nextInt();
 			if(sel==1) {
 				im.pritJang(um.userList.get(um.userLog));
@@ -50,11 +50,11 @@ public class Shop {
 		boolean run =true;
 		while(run) {
 			im.printCategory();
-			System.out.println("[Ä«Å×°í¸®] ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. [Á¾·á.-1]");
+			System.out.println("[ì¹´í…Œê³ ë¦¬] ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.[ì¢…ë£Œ.-1]");
 			int calD=scan.nextInt();
 			if(calD==-1)
 				break;
-			System.out.println("[¾ÆÀÌÅÛ]¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("[ì•„ì´í…œ]ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹œì˜¤.");
 			im.printItemList(calD);
 			int itId=scan.nextInt();
 			im.addCart(um.userList.get(um.userLog).id,calD,itID);
@@ -64,7 +64,7 @@ public class Shop {
 	void managerMenu() {
 		boolean run = true;
 		while(run) {
-			System.out.println("[1.¾ÆÀÌÅÛ°ü¸®] [2.Ä«Å×°í¸®°ü¸®] [3.Àå¹Ù±¸´Ï°ü¸®] [4.À¯Àú°ü¸®] [0.µÚ·Î°¡±â]");
+			System.out.println("[1.ì•„ì´í…œê´€ë¦¬] [2.ì¹´í…Œê³ ë¦¬ê´€ë¦¬] [3.ì¥ë°”êµ¬ë‹ˆê´€ë¦¬] [4.ìœ ì €ê´€ë¦¬] [0.ë’¤ë¡œê°€ê¸°]");
 			int sel=scan.nextInt();
 			if(sel==1) {
 				itemMenu();
@@ -73,7 +73,6 @@ public class Shop {
 				categoryMenu();
 			}
 			else if(sel==3) {
-				setJang();
 			}
 			else if(sel==4) {
 				userMenu();
@@ -83,11 +82,14 @@ public class Shop {
 			}
 		}
 	}
+	void itemMenu() {
+		
+	}
 	
 	void categoryMenu() {
 		boolean run = true;
 		while (run) {
-			System.out.println("[1.ÀüÃ¼Ä«Å×°í¸®] [2.Ä«Å×°í¸®Ãß°¡] [3.Ä«Å×°í¸®»èÁ¦] [0.µÚ·Î°¡±â]");
+			System.out.println("[1.ì „ì²´ì¹´í…Œê³ ë¦¬] [2.ì¹´í…Œê³ ë¦¬ì¶”ê°€] [3.ì¹´í…Œê³ ë¦¬ì‚­ì œ] [0.ë’¤ë¡œê°€ê¸°]");
 			int sel= scan.nextInt();
 			if(sel==1) {
 				im.printCategory();
@@ -107,7 +109,7 @@ public class Shop {
 	void userMenu() {
 		boolean run=true;
 		while(run) {
-			System.out.println("[1.ÀüÃ¼À¯Àú] [2.À¯ÀúÃß°¡] [3.À¯Àú»èÁ¦] [0.µÚ·Î°¡±â]");
+			System.out.println("[1.ì „ì²´ìœ ì €] [2.ìœ ì €ì¶”ê°€] [3.ìœ ì €ì‚­ì œ] [0.ë’¤ë¡œê°€ê¸°]");
 			int sel = scan.nextInt();
 			if(sel==1) {
 				um.printUser();

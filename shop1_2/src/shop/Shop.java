@@ -72,22 +72,23 @@ public class Shop {
 			System.out.println("1.아이템관리 2.카테고리관리 3.장바구니관리 4.유저관리 5.뒤로가기:");
 			int sel=sc.nextInt();
 			if(sel==1) {
-				
+				itemMenu();
 			}
 			else if(sel==2) {
-				
+				cateMenu();
 			}
 			else if(sel==3) {
-				
+				jangMenu();
 			}
 			else if(sel==4) {
-				
+				userMenu();
 			}
 			else if(sel==5) {
 				
 			}
 		}
 	}
+	//관리자 아이템메뉴
 	void itemMenu() {
 		while(true) {
 			System.out.println("1.전체아이템 2.아이템추가 3.아이템삭제 4.뒤로가기");
@@ -106,28 +107,81 @@ public class Shop {
 			}
 		}
 	}
+	//관리자카테고리 메뉴
+	void cateMenu() {
+		while(true) {
+			System.out.println("1.전체카테고리 2.카테고리추가 3.카테고리삭제 4.뒤로가기");
+			int sel=sc.nextInt();
+			if(sel==1) {
+				im.printCategory();
+			}
+			else if(sel==2) {
+				im.addCategory();
+			}
+			else if(sel==3) {
+				im.delCategory();
+			}
+			else if(sel==4) {
+				break;
+			}
+		}
+	}
+	//관리자카트메뉴
+	void jangMenu() {
+		while(true) {
+			System.out.println("1.전체장바구니 2.장바구니제거 3.뒤로가기");
+			int sel=sc.nextInt();
+			if(sel==1) {
+				im.printCart();
+			}
+			else if(sel==2) {
+				System.out.println("제거할 장바구니:");
+				int cho=sc.nextInt();
+				im.delCart(cho);
+			}
+			else if(sel==3) {
+				break;
+			}
+		}
+	}
+	//관리자 유저메뉴
 	void userMenu() {
 		while(true) {
 			System.out.println("1.전체유저 2.유저추가 3.유저삭제 4.뒤로가기");
 			int sel=sc.nextInt();
 			if(sel==1) {
-				
+				um.printUser();
 			}
 			else if(sel==2) {
-				
+				um.addUser();
 			}
 			else if(sel==3) {
-				
+				um.delUser();
 			}
 			else if(sel==4) {
-				
+				break;
 			}
 		}
 	}
+	//구매자 카트메뉴
 	void cartMenu() {
 		while(true) {
 			System.out.println("1.장바구니 2.삭제 3.구입 4.뒤로가기");
-			
+			int sel=sc.nextInt();
+			if(sel==1) {
+				im.printCart(um.user.get(um.log));
+			}
+			else if(sel==2) {
+				System.out.println("삭제할 장바구니:");
+				int delIdx=sc.nextInt();
+				im.delCart(delIdx);
+			}
+			else if(sel==3) {
+				im.buyCart(um.user.get(um.log));
+			}
+			else if(sel==4) {
+				break;
+			}
 		}
 	}
 }

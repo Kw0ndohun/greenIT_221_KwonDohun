@@ -72,4 +72,28 @@ public class UserManager {
 			System.out.println("로그아웃 완료.");
 		}
 	}
+	
+	void printUser() {
+		for(User u:user) {
+			u.print();
+		}
+	}
+	void addUser() {
+		System.out.println("추가할 유저 아이디:");
+		String id=sc.next();
+		if(doubleCk(id)) {
+			user.add(new User(id,1000));
+			System.out.println("추가가 완료되었습니다.");
+		}
+		else {
+			System.out.println("중복된 아이디");
+		}
+	}
+	void delUser() {
+		System.out.println("제거할 유저 번호:");
+		int delIdx=sc.nextInt();
+		if(delIdx>-1&&delIdx<user.size()) {
+			user.remove(delIdx);
+		}
+	}
 }

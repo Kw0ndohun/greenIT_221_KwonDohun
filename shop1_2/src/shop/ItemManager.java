@@ -126,7 +126,7 @@ public class ItemManager {
 				itemList.get(n).print();
 		}
 	}
-	//아이템출력
+	//유저 아이템출력
 	void printItem(int idx) {
 		for(int n=0; n<itemList.size(); n++) {
 			if(itemList.get(n).category.equals(category.get(idx))) {
@@ -145,7 +145,7 @@ public class ItemManager {
 	}
 	//카트에 추가하기
 	void addCart(String userId,int idx) {
-		cartList.add(new Cart(userId,itemList.get(idx).name));
+		cartList.add(new Cart(userId,itemList.get(idx).name,itemList.get(idx).price));
 	}
 	//카트에서 제거하기
 	void delCart(int idx) {
@@ -161,6 +161,36 @@ public class ItemManager {
 		for(int n=0; n<cartList.size(); n++) {
 			if(cartList.get(n).userId.equals(u.id))
 				cartList.get(n).print();
+		}
+	}
+	//카트 구매
+	void buyCart(User u) {
+		int sum=0;
+		for(int n=0; n<cartList.size(); n++) {
+			if(cartList.get(n).userId.equals(u.id)) {
+				sum+=cartList.get(n).price;
+			}
+		}
+		payment(sum,u);
+	}
+	//카트목록 결제
+	void payment(int sum, User u) {
+		if(u.money>=sum) {
+			u.money-=sum;
+			clearCart(u);
+			System.out.println("결제완료.");
+		}
+		else {
+			System.out.println("금액이 부족합니다.");
+		}
+	}
+	//구매한 카트목록 제거
+	void clearCart(User u) {
+		for(int n=0; n<cartList.size(); n++) {
+			if(cartList.get(n).userId.equals(u.id)) {
+				cartList.remove(n);
+				n--;
+			}
 		}
 	}
 }

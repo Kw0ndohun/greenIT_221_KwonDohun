@@ -7,6 +7,7 @@ public class _Main {
 		
 		pl.start();
 		new Game();
+		//
 	}
 
 }

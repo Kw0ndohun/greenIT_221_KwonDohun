@@ -30,6 +30,7 @@ public class Play extends Thread {
 	}
 	
 	public void printScreen() {
+		System.out.println("---------------------------------------------");
 		System.out.println("[내 공격력:"+this.damage+"]");
 		if(turn%2!=0) {
 			System.out.println("[적 체력:"+mon.getHp()+"]");
@@ -56,6 +57,6 @@ public class Play extends Thread {
 				System.out.println("_>>>>>>>>웃____◀▶___");
 			}
 		}
-		
+		System.out.println("---------------------------------------------");
 	}
 }

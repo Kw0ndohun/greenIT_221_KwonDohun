@@ -7,6 +7,7 @@ public class Play extends Thread {
 	
 	public void run() {
 		while(true) {
+			this.damage=Player.pl.setDamage();
 			printScreen();
 			setMonster();
 			this.turn++;
@@ -30,8 +31,8 @@ public class Play extends Thread {
 	
 	public void printScreen() {
 		System.out.println("[내 공격력:"+this.damage+"]");
-		System.out.println("[적 체력:"+mon.getHp()+"]");
 		if(turn%2!=0) {
+			System.out.println("[적 체력:"+mon.getHp()+"]");
 			System.out.println("           ●○      ");
 			System.out.println("_웃________◀▶_______");
 		}
@@ -41,6 +42,7 @@ public class Play extends Thread {
 				hp=0;
 			}
 			mon.setHp(hp);
+			System.out.println("[적 체력:"+mon.getHp()+"]");
 			if(mon.getHp()==0) {
 				System.out.printf("              %d!!!  \n",this.damage);
 				System.out.println("               ※※ ");

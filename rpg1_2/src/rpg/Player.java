@@ -8,6 +8,7 @@ public class Player {
 	private int damage;
 	
 	public int setDamage() {
+		this.damage=0;
 		for(int n=0; n<Guild.gl.getPartyList().length; n++) {
 			this.damage+=Guild.gl.getPartyList()[n].getAtt();
 			if(Guild.gl.getPartyList()[n].getWeapon()!=null) {

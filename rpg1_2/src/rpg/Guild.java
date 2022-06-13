@@ -176,6 +176,8 @@ public class Guild {
 			partyList[upUnit].setLevel(partyList[upUnit].getLevel()+1);
 			partyList[upUnit].setAtt(partyList[upUnit].getAtt()+partyList[upUnit].getLevel());
 			System.out.println("레벨업!!!");
+			int money=Player.pl.getMoney()-partyList[upUnit].getLevel()*1000;
+			Player.pl.setMoney(money);
 		}
 		
 	}

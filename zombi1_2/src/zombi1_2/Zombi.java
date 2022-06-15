@@ -2,7 +2,7 @@ package zombi1_2;
 
 public class Zombi extends Unit{
 	private int power;
-	
+	private int exp;
 	
 	public Zombi(int h, String n, int p,int po) {
 		super(h, n, p);

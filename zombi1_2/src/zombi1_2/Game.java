@@ -12,7 +12,7 @@ public class Game {
 	static ArrayList<Zombi> zomList=new ArrayList<Zombi>();
 	static ArrayList<Boss> bossList=new ArrayList<Boss>();
 	static Hero hero = new Hero(200, "히어로", 1, 20);
-	ArrayList<Unit> unitList=new ArrayList<Unit>();
+//	ArrayList<Unit> unitList=new ArrayList<Unit>();
 	
 	
 //	void init() {
@@ -43,7 +43,7 @@ public class Game {
 	}
 	//몬스터 생성
 	public void setMonster() {
-		for(int ranAddZom=r.nextInt(5)+1; ranAddZom>0; ranAddZom--) {
+		for(int ranAddZom=r.nextInt(5)+8; ranAddZom>0; ranAddZom--) {
 			int ranPos=r.nextInt(17)+2;
 			Zombi zom = new Zombi(100, "좀비", ranPos, 12);
 			zomList.add(zom);
@@ -69,11 +69,19 @@ public class Game {
 		System.out.println("몬스터를 만났다!!!!");
 		while(true) {
 			
-			System.out.println("[ 1.공격하기 2.물약먹기 ]");
+			System.out.println("[ 1.공격하기 2.물약먹기 3.슬래쉬 4.필살 ]");
 			int sel=sc.nextInt();
 			if(sel==1) {
+				hero.setDmg();
 				hero.attack(unit);
-				unit.attack(hero);
+			}
+			else if(sel==3) {
+				hero.Slash();
+				hero.attack(unit);
+			}
+			else if(sel==4) {
+				hero.buringCrush();
+				hero.attack(unit);
 			}
 			else {
 				hero.drinkPotion();
@@ -89,6 +97,7 @@ public class Game {
 				System.out.println("몬스터 사망.");
 				break;
 			}
+			unit.attack(hero);
 		}
 	}
 	//플레이

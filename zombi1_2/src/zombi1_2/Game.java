@@ -19,7 +19,7 @@ public class Game {
 //		this.unitList.add(new Zombi(1,"dd",1,1));
 //		this.unitList.get(0).getPos();
 //	}
-
+//
 
 	public Hero getHero() {
 		return hero;

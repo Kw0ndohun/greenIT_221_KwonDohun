@@ -7,7 +7,7 @@ public class MyGoketmon {
 	ArrayList<Unit> myGoketmon=UnitManager.myList;
 	//내 고켓몬 관리창
 	
-	
+	//
 	//고켓몬 리스트 출력
 	public void printAllGoketmon() {
 		int num=1;

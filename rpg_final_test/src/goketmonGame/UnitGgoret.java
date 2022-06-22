@@ -3,12 +3,18 @@ package goketmonGame;
 public class UnitGgoret extends Unit {
 	
 	
-	public UnitGgoret(int h, int p,int d){
+	public UnitGgoret(){
+		
+	}
+
+	@Override
+	public void settingUnit(int hp, int power, int def) {
+		// TODO Auto-generated method stub
 		super.setName("²¿·¿");
-		super.setHp(h); 
-		super.setMaxHp(h);
-		super.setPower(p);
-		super.setDef(d);
+		super.setHp(hp); 
+		super.setMaxHp(hp);
+		super.setPower(power);
+		super.setDef(def);
 	}
 
 }

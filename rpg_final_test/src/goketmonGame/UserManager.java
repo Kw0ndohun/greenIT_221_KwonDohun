@@ -46,7 +46,7 @@ public class UserManager {
 	public void addUser() {
 		System.out.println("사용할 아이디:");
 		String id=GameManager.sc.next();
-		if(checkId(id)!=-1) {
+		if(checkId(id)==-1) {
 			System.out.println("사용할 비밀번호:");
 			String pw=GameManager.sc.next();
 			int num=GameManager.ran.nextInt(8999)+1000;
@@ -76,6 +76,5 @@ public class UserManager {
 		}
 		return -1;
 	}
-//	public void 
 
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class MyGoketmon {
 	static MyGoketmon instance=new MyGoketmon();
 	//내 고켓몬 리스트
-	private ArrayList<Unit> myGoketmon=UnitManager.myGoList;
+	private ArrayList<Unit> goketmon=UnitManager.instance.getMyGoList();
 	//내 고켓몬 관리창
 	
 	////
@@ -28,7 +28,7 @@ public class MyGoketmon {
 	//고켓몬 리스트 출력
 	public void printAllGoketmon() {
 		int num=1;
-		for(Unit u:myGoketmon) {
+		for(Unit u:goketmon) {
 			System.out.print("["+num+"]");
 			u.print();
 			num++;
@@ -38,9 +38,9 @@ public class MyGoketmon {
 	public void delGoketmon() {
 		System.out.println("놓아줄 고켓몬 선택:");
 		int sel=GameManager.sc.nextInt();
-		if(sel>0&&myGoketmon.size()+1>sel) {
+		if(sel>0&&goketmon.size()+1>sel) {
 			System.out.println("놓아주기 완료.");
-			myGoketmon.remove(sel-1);
+			goketmon.remove(sel-1);
 			printAllGoketmon();
 		}
 		else {

@@ -1,6 +1,6 @@
 package goketmonGame;
 
-public class Unit {
+public abstract class Unit {
 	private String name;
 	private int maxHp;
 	private int hp;
@@ -48,4 +48,5 @@ public class Unit {
 	}
 	
 
+	public abstract void settingUnit(int hp, int power, int def);
 }

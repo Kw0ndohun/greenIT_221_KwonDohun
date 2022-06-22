@@ -16,7 +16,7 @@ public class GameManager {
 	public void run() {
 		 this.sm.MainMenu();
 		 if(this.log!=-1) {
-			 this.sl.
+			 this.sl.lobbyMenu();
 		 }
 	}
 }

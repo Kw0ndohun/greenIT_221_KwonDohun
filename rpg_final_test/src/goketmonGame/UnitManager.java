@@ -4,11 +4,28 @@ import java.util.ArrayList;
 
 public class UnitManager{
 	static UnitManager instance=new UnitManager();
-	static ArrayList<Unit> monList=new ArrayList<Unit>();
-	static ArrayList<Unit> myGoList=new ArrayList<Unit>();
+	private ArrayList<Unit> monList=new ArrayList<Unit>();
+	private ArrayList<Unit> myGoList=new ArrayList<Unit>();
 	
+	
+	
+	public ArrayList<Unit> getMonList() {
+		return monList;
+	}
+
+	public void setMonList(ArrayList<Unit> monList) {
+		this.monList = monList;
+	}
+
+	public ArrayList<Unit> getMyGoList() {
+		return myGoList;
+	}
+
+	public void setMyGoList(ArrayList<Unit> myGoList) {
+		this.myGoList = myGoList;
+	}
 	String packa="goketmonGame.";
-	String[] mon= {"UnitGgobugi","UnitGgomadoll","UnitGgoret","UnitPairi","UnitPiKachu"};
+	String[] mon= {"UnitGgobugi","UnitGgomadoll","UnitGgoret","UnitPairi","UnitPikachu"};
 	
 	public UnitManager() {
 		addMyGoketmon();
@@ -22,21 +39,24 @@ public class UnitManager{
 			Class<?> clazz=Class.forName(packa+mon[num]);
 			Object ob=clazz.getDeclaredConstructor().newInstance();
 			Unit temp=(Unit)ob;
+			System.out.println("생성");
+			ob.
 			return temp;
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("생성 실패");
 			return null;
 			// TODO: handle exception
 		}
+//		Unit n=new Unit();
+//		return n;
 	}
 	
 	public void addMonster() {
 		this.monList.add(ranAddUnit());
-		System.out.println("몬 추가완료.");
 	}
 	public void addMyGoketmon() {
 		this.myGoList.add(ranAddUnit());
-		System.out.println("몬 추가완료.");
 	}
 	
 	

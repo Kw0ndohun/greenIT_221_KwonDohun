@@ -1,7 +1,7 @@
 package goketmonGame;
 
 import java.util.ArrayList;
-
+ 
 public class ItemManager {
 	static ItemManager instance=new ItemManager();
 	private ArrayList<Item> itemList=new ArrayList<Item>();

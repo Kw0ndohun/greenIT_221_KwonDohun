@@ -12,6 +12,6 @@ public class GameManager {
 	//게임 진행
 	
 	public void run() {
-		
+		 
 	}
 }

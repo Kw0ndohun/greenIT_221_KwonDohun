@@ -10,6 +10,6 @@ public class UnitGgomadoll extends Unit {
 		super.setMaxHp(h);
 		super.setPower(p);
 		super.setDef(d);
-	}
+	} 
 
 }

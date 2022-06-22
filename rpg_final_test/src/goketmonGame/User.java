@@ -34,7 +34,7 @@ public class User {
 
 
 	public int getNum() {
-		return num;
+		return num; 
 	}
 
 

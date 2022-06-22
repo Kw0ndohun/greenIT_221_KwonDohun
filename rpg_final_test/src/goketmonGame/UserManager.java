@@ -20,7 +20,7 @@ public class UserManager {
 	//유저메뉴 선택
 //	public void selectMenu() {
 //		int sel=GameManager.sc.nextInt();
-//		if(sel==1) {
+//		if(sel==1) { 
 //			addUser();
 //		}
 //		else if(sel==2) {

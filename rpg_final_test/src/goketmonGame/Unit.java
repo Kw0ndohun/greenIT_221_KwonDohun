@@ -16,7 +16,7 @@ public class Unit {
 	}
 	public void setPower(int power) {
 		this.power = power;
-	}
+	} 
 	public String getName() {
 		return name;
 	}

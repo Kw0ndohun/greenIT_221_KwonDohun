@@ -1,7 +1,7 @@
 package goketmonGame;
 
 import java.util.ArrayList;
-
+ 
 public class MyGoketmon {
 	//내 고켓몬 리스트
 	ArrayList<Unit> myGoketmon=UnitManager.myList;

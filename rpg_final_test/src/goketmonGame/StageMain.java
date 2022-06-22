@@ -27,7 +27,7 @@ public class StageMain {
 			}
 		}
 	}
-	//
+	// 
 	public void login() {
 		System.out.println("¾ÆÀÌµğ:");
 		String id=GameManager.sc.next();

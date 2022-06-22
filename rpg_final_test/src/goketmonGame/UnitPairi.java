@@ -7,7 +7,7 @@ public class UnitPairi extends Unit {
 		super.setName("ÆÄÀÌ¸®");
 		super.setHp(h);
 		super.setMaxHp(h);
-		super.setPower(p);
+		super.setPower(p); 
 		super.setDef(d);
 	}
 

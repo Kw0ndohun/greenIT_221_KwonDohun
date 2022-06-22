@@ -11,4 +11,4 @@ public class UnitGgobugi extends Unit{
 		super.setPower(p);
 		super.setDef(d);
 	}
-}
+} 

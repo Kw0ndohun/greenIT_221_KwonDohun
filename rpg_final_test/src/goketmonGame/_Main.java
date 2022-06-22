@@ -5,7 +5,7 @@ public class _Main {
 		
 		GameManager gm=new GameManager();
 		
-		gm.run(); //
+		gm.run(); 
 		
 		
 	}

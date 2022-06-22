@@ -7,11 +7,16 @@ public class GameManager {
 	static Scanner sc=new Scanner(System.in);
 	static Random ran=new Random();
 	static int log=-1;
+	private StageMain sm=StageMain.instance;
+	private StageLobby sl=StageLobby.instance;
 	
 	//로그인 각 메뉴
 	//게임 진행
 	
 	public void run() {
-		 
+		 this.sm.MainMenu();
+		 if(this.log!=-1) {
+			 this.sl.
+		 }
 	}
 }

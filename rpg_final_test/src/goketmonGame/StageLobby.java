@@ -1,6 +1,8 @@
 package goketmonGame;
 
 public class StageLobby {
+	static StageLobby instance=new StageLobby();
+	private MyGoketmon myGo=MyGoketmon.instance;
 	
 	public void lobbyMenu(){
 		System.out.println("===========Lobby===========");
@@ -10,16 +12,16 @@ public class StageLobby {
 	public void selectLobbyMenu() {
 		int sel=GameManager.sc.nextInt();
 		if(sel==1) {
-			
+//			StageBattle();
 		}
 		else if(sel==2) {
-			
+//			Shop();
 		}
 		else if(sel==3) {
-			
+//			inven
 		}
 		else if(sel==4) {
-			
+			myGo.goketmonMenu();
 		}
 		else {
 			

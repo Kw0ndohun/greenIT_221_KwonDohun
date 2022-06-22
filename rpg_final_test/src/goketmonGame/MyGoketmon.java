@@ -3,11 +3,28 @@ package goketmonGame;
 import java.util.ArrayList;
  
 public class MyGoketmon {
+	static MyGoketmon instance=new MyGoketmon();
 	//내 고켓몬 리스트
-	ArrayList<Unit> myGoketmon=UnitManager.myList;
+	private ArrayList<Unit> myGoketmon=UnitManager.myGoList;
 	//내 고켓몬 관리창
 	
 	////
+	
+	//내 고켓몬 메뉴
+	public void goketmonMenu() {
+		while(true) {
+			printAllGoketmon();
+			System.out.println("1.고켓몬 놓아주기 2.고켓몬 파티변경");
+			int sel=GameManager.sc.nextInt();
+			if(sel==1) {
+				delGoketmon();
+			}
+			else if(sel==2) {
+				
+			}
+		}
+	}
+	
 	//고켓몬 리스트 출력
 	public void printAllGoketmon() {
 		int num=1;
@@ -30,4 +47,6 @@ public class MyGoketmon {
 			System.out.println("잘못된 선택입니다.");
 		}
 	}
+	
+	//고켓몬 파티변경
 }

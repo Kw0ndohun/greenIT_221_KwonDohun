@@ -60,7 +60,9 @@ public class Shop {
 	
 	public void shopMenu() {
 		while(true) {
+			//1. 메뉴출력 기능
 			System.out.println("1.무기구매 2.갑옷구매 3.반지구매 4.뒤로가기 \n입력:");
+			//2. 입력 받는 기능
 			int sel=sc.nextInt();
 			if(sel==4) {
 				break;
@@ -68,8 +70,10 @@ public class Shop {
 			else {
 				printList(sel);
 				System.out.println("구매할 아이템:");
+				//3.입력을 받는 기능
 				int selIdx=sc.nextInt();
 				int i=1;
+				//4.입력 받은 값과 같은 값을 찾는 기능
 				for(int n=0; n<itemList.size(); n++) {
 					if(itemList.get(n).getKind()==sel) {
 						if(i==selIdx) {
@@ -77,6 +81,7 @@ public class Shop {
 							int price =itemList.get(n).getPrice();
 							int kind =itemList.get(n).getKind();
 							int power =itemList.get(n).getPower();
+							//5.인벤토리에 새로운 아이템을 추가해주는 기능
 							Inventory.inven.addItem(new Item(name,price,kind,power));
 						}
 						i++;

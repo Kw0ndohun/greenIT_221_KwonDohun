@@ -1,5 +1,5 @@
 package finalTestMolyGame;
 
-public class StageManage {
+public class Item {
 
 }

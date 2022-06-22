@@ -3,12 +3,12 @@ package goketmonGame;
 import java.util.ArrayList;
 
 public class MyGoketmon {
-	//ë‚´ ê³ ì¼“ëª¬ ë¦¬ìŠ¤íŠ¸
+	//³» °íÄÏ¸ó ¸®½ºÆ®
 	ArrayList<Unit> myGoketmon=UnitManager.myList;
-	//ë‚´ ê³ ì¼“ëª¬ ê´€ë¦¬ì°½
+	//³» °íÄÏ¸ó °ü¸®Ã¢
 	
 	////
-	//ê³ ì¼“ëª¬ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
+	//°íÄÏ¸ó ¸®½ºÆ® Ãâ·Â
 	public void printAllGoketmon() {
 		int num=1;
 		for(Unit u:myGoketmon) {
@@ -17,17 +17,17 @@ public class MyGoketmon {
 			num++;
 		}
 	}
-	//ê³ ì¼“ëª¬ ë†“ì•„ì£¼ê¸°
+	//°íÄÏ¸ó ³õ¾ÆÁÖ±â
 	public void delGoketmon() {
-		System.out.println("ë†“ì•„ì¤„ ê³ ì¼“ëª¬ ì„ íƒ:");
+		System.out.println("³õ¾ÆÁÙ °íÄÏ¸ó ¼±ÅÃ:");
 		int sel=GameManager.sc.nextInt();
 		if(sel>0&&myGoketmon.size()+1>sel) {
-			System.out.println("ë†“ì•„ì£¼ê¸° ì™„ë£Œ.");
+			System.out.println("³õ¾ÆÁÖ±â ¿Ï·á.");
 			myGoketmon.remove(sel-1);
 			printAllGoketmon();
 		}
 		else {
-			System.out.println("ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.");
+			System.out.println("Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù.");
 		}
 	}
 }

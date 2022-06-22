@@ -11,25 +11,25 @@ public class UserManager {
 	boolean run=true;
 	
 	//유저메뉴
-	public void UserMenu() {
-		while(run) {
-			System.out.println("1.회원가입 2.회원탈퇴 3.종료 \n입력:");
-			selectMenu();
-		}
-	}
+//	public void UserMenu() {
+//		while(run) {
+//			System.out.println("1.회원가입 2.회원탈퇴 3.종료 \n입력:");
+//			selectMenu();
+//		}
+//	}
 	//유저메뉴 선택
-	public void selectMenu() {
-		int sel=GameManager.sc.nextInt();
-		if(sel==1) {
-			addUser();
-		}
-		else if(sel==2) {
-			delUser(GameManager.log);
-		}
-		else {
-			run=false;
-		}
-	}
+//	public void selectMenu() {
+//		int sel=GameManager.sc.nextInt();
+//		if(sel==1) {
+//			addUser();
+//		}
+//		else if(sel==2) {
+//			delUser(GameManager.log);
+//		}
+//		else {
+//			run=false;
+//		}
+//	}
 	
 	//유저 추가
 	public void addUser() {

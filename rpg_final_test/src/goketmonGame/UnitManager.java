@@ -34,6 +34,12 @@ public class UnitManager{
 		}
 	}
 	
+	public void printMonList() {
+		for(int n=0; n<monList.size(); n++) {
+			monList.get(n).print();
+		}
+	}
+	
 	//랜덤유닛생성
 	public Unit ranAddUnit() {
 		int num=GameManager.ran.nextInt(this.mon.length);
@@ -45,7 +51,6 @@ public class UnitManager{
 			Object ob=clazz.getDeclaredConstructor().newInstance();
 			Unit temp=(Unit)ob;
 			temp.settingUnit(ranHp,ranPower,ranDef);
-			System.out.println("생성");
 			return temp;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,12 +60,25 @@ public class UnitManager{
 		}
 	}
 	
-	
+	//상대몬스터리스트 추가
 	public void addMonster() {
 		this.monList.add(ranAddUnit());
 	}
+	public void addMonster(Unit unit) {
+		this.monList.add(unit);
+	}
+	//내 고켓몬 추가
 	public void addMyGoketmon() {
 		this.myGoList.add(ranAddUnit());
+	}
+	public void addMyGoketmon(Unit unit) {
+		this.myGoList.add(unit);
+	}
+	public void delMonster(Unit unit) {
+		this.monList.remove(unit);
+	}
+	public void delMyGoketmon(Unit unit) {
+		this.myGoList.remove(unit);
 	}
 	
 	//맵에 몬스터 생성

@@ -1,13 +1,14 @@
 package goketmonGame;
  
-public class Item {
+public abstract class Item {
 	private String name;
 	private int price;
 	
-	public Item(String n,int p) {
-		this.name=n;
-		this.price=p;
-	}
+	
+//	public Item(String n,int p) {
+//		this.name=n;
+//		this.price=p;
+//	}
 
 	public String getName() {
 		return name;
@@ -25,5 +26,10 @@ public class Item {
 		this.price = price;
 	}
 	
+	public abstract void effect(Unit unit);
+	
+	public void print() {
+		System.out.println(this.name+"을 사용했다!");
+	}
 	
 }

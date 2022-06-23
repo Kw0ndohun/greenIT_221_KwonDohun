@@ -11,6 +11,18 @@ public class MyGoketmon {
 	//최대 파티원
 	private final int MAXPARTY=2;
 	
+	public ArrayList<Unit> getGoketmon() {
+		return goketmon;
+	}
+	public void setGoketmon(ArrayList<Unit> goketmon) {
+		this.goketmon = goketmon;
+	}
+	public ArrayList<Unit> getMyParty() {
+		return myParty;
+	}
+	public void setMyParty(ArrayList<Unit> myParty) {
+		this.myParty = myParty;
+	}
 	public MyGoketmon() {
 		//데리고 시작하는 두 마리 파티에 넣고 시작
 		for(int n=0; n<2; n++) {

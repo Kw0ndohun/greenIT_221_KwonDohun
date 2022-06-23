@@ -61,6 +61,7 @@ public class UserManager {
 		String sel=GameManager.sc.next();
 		if(sel.equals("Y")) {
 			user.remove(log);
+			GameManager.log=-1;
 		}
 		else {
 			System.out.println("종료되었습니다.");

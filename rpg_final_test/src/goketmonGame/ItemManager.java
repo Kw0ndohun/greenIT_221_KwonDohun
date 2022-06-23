@@ -13,7 +13,19 @@ public class ItemManager {
 		this.itemList = itemList;
 	}
 	
-	
+	public void addItem() {
+		
+	}
+	public Item addMonsterBall() {
+		ItemMonsterBall mon=new ItemMonsterBall();
+		itemList.add(mon);
+		return mon;
+	}
+	public Item addPotion() {
+		ItemPotion po=new ItemPotion();
+		itemList.add(po);
+		return po;
+	}
 	
 	
 	

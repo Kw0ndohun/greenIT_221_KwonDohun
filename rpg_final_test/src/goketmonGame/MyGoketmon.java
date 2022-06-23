@@ -95,21 +95,28 @@ public class MyGoketmon {
 	}
 	
 	//고켓몬 파티변경
-//	public void changeParty() {
-//		printPartyList();
-//		System.out.println("변경할 고켓몬:");
-//		int sel=GameManager.sc.nextInt()-1;
-//		if(sel>=0&&sel<myParty.size()) {
-//			myParty.remove(sel);
-//			printMyGoketmonList();
-//			System.out.println("추가할 고켓몬:");
-//			sel=GameManager.sc.nextInt()-1;
-//			
-//		}
-//		else {
-//			System.out.println("잘못된 선택입니다.");
-//		}
-//	}
+	public void changeParty() {
+		printPartyList();
+		System.out.println("변경할 고켓몬:");
+		int sel=GameManager.sc.nextInt()-1;
+		if(sel>=0&&sel<myParty.size()) {
+			printMyGoketmonList();
+			System.out.println("추가할 고켓몬:");
+			int addSel=GameManager.sc.nextInt()-1;
+			if(!goketmon.get(addSel).isParty()) {
+				this.myParty.remove(sel);
+				this.myParty.add(this.goketmon.get(addSel));
+				System.out.println("변경완료.");
+			}
+			else {
+				System.out.println("이미 파티중인 고켓몬.");
+			}
+			
+		}
+		else {
+			System.out.println("잘못된 선택입니다.");
+		}
+	}
 	//파티 고켓몬 추가
 	public void addMonForParty() {
 		//파티가 꽉 차지 않았을 때

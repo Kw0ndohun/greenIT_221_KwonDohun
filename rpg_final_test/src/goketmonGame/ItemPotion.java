@@ -5,6 +5,8 @@ public class ItemPotion extends Item{
 	public ItemPotion() {
 		super.setName("상처약");
 		super.setPrice(1000);
+		super.setEx("상처를 30 회복한다.");
+		super.setTarget(1);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -20,7 +22,7 @@ public class ItemPotion extends Item{
 			recovery=unit.getMaxHp()-unit.getHp();
 			unit.setHp(unit.getMaxHp());
 		}
-		System.out.println("체력이 "+recovery+" 회복됐다.");
+		System.out.println("체력이 "+30+" 회복됐다.");
 	}
 
 }

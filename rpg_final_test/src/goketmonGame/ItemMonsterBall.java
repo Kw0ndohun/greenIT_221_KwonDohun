@@ -1,11 +1,13 @@
 package goketmonGame;
 
-public class ItemMonseterBall extends Item{
+public class ItemMonsterBall extends Item{
 	private UnitManager um=UnitManager.instance;
 	
-	public ItemMonseterBall() {
+	public ItemMonsterBall() {
 		super.setName("몬스터볼");
 		super.setPrice(500);
+		super.setEx("몬스터를 잡을 때 사용한다.");
+		super.setTarget(2);
 		// TODO Auto-generated constructor stub
 	}
 

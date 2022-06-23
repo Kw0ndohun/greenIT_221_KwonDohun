@@ -15,16 +15,17 @@ public class StageLobby {
 				Stage.instance.battle();
 			}
 			else if(sel==2) {
-	//			Shop();
+				Shop.instance.sellMenu();
 			}
 			else if(sel==3) {
-	//			inven
+				Inventory.instance.invenMenu();
 			}
 			else if(sel==4) {
 				myGo.goketmonMenu();
 			}
 			else {
-				
+				GameManager.game=false;
+				break;
 			}
 		}
 	} 

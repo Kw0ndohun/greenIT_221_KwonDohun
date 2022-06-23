@@ -27,20 +27,25 @@ public class UnitManager{
 	String packa="goketmonGame.";
 	String[] mon= {"UnitGgobugi","UnitGgomadoll","UnitGgoret","UnitPairi","UnitPikachu"};
 	
+	//처음 몬스터 세마리 데리고 시작
 	public UnitManager() {
-		addMyGoketmon();
-		addMyGoketmon();
+		for(int n=0; n<3; n++) {
+			addMyGoketmon();
+		}
 	}
 	
 	//랜덤유닛생성
 	public Unit ranAddUnit() {
 		int num=GameManager.ran.nextInt(this.mon.length);
+		int ranHp=GameManager.ran.nextInt(100)+100;
+		int ranPower=GameManager.ran.nextInt(30)+10;
+		int ranDef=GameManager.ran.nextInt(10)+5;
 		try {
 			Class<?> clazz=Class.forName(packa+mon[num]);
 			Object ob=clazz.getDeclaredConstructor().newInstance();
 			Unit temp=(Unit)ob;
+			temp.settingUnit(ranHp,ranPower,ranDef);
 			System.out.println("생성");
-			ob.
 			return temp;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,9 +53,8 @@ public class UnitManager{
 			return null;
 			// TODO: handle exception
 		}
-//		Unit n=new Unit();
-//		return n;
 	}
+	
 	
 	public void addMonster() {
 		this.monList.add(ranAddUnit());
@@ -59,5 +63,13 @@ public class UnitManager{
 		this.myGoList.add(ranAddUnit());
 	}
 	
+	//맵에 몬스터 생성
+	public void setMonForStage() {
+		//최대 2마리까지 랜덤으로 출현
+		int num=GameManager.sc.nextInt(2)+1;
+		for(int n=0; n<num; n++) {
+			addMonster();
+		}
+	}
 	
 }

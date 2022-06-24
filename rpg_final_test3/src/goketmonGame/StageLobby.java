@@ -6,7 +6,12 @@ public class StageLobby {
 	private Player pl=Player.instance;
 	private int pX=0;
 	private int pY=0;
+	private int player=5;
 	
+	
+	public StageLobby() {
+		setPlayer();
+	}
 	
 	public void lobbyMenu(){
 		while(true) {
@@ -34,10 +39,10 @@ public class StageLobby {
 				pl.getMyGoketmonInstance().goketmonMenu();
 			}
 			else if(sel.equals("w")) {
-				yy++;
+				yy--;
 			}
 			else if(sel.equals("s")) {
-				yy--;
+				yy++;
 			}
 			else if(sel.equals("a")) {
 				xx--;
@@ -45,9 +50,17 @@ public class StageLobby {
 			else if(sel.equals("d")) {
 				xx++;
 			}
-			else {
+			else if(sel.equals("5")) {
 				GameManager.game=false;
 				break;
+			}
+			else {
+				System.out.println("잘못 입력");
+			}
+			
+			if(moveCheck(xx,yy)) {
+				System.out.println("맵의 끝이다");
+				continue;
 			}
 		}
 	} 
@@ -59,12 +72,25 @@ public class StageLobby {
 //		System.out.println("       =========================");
 //	}
 	
-	public void moveCheck() {
-		for(int n=0; n<mm.getMap().get(0).size(); n++) {
-			
+	public boolean moveCheck(int xx,int yy) {
+		System.out.println(mm.getMap().get(0).size());
+		System.out.println(mm.getMap().size());
+		if( xx<0 || mm.getMap().get(0).size()<=xx || yy<0 || yy >= mm.getMap().size()) {
+			return true;
 		}
+		mm.getMap().get(this.pY).get(this.pX).setNum(0);
+		mm.getMap().get(yy).get(xx).setNum(player);
+		this.pY=yy;
+		this.pX=xx;
+//		for(int n=0; n<mm.getMap().size(); n++) {
+//			for(int i=0; i<mm.getMap().get(0).size(); n++) {
+//			}
+//		}
 		
-		
+		return false;
+	}
+	public void setPlayer() {
+		mm.getMap().get(this.pY).get(this.pX).setNum(player);
 	}
 	
 

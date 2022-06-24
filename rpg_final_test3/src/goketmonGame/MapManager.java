@@ -54,10 +54,10 @@ public class MapManager {
 			for(int i=0; i<map.get(0).size(); i++) {
 				if(map.get(n).get(i).getNum()==0) {
 					if(map.get(n).get(i).isDangerMap()) {
-						System.out.print("□ ");
+						System.out.print("＃ ");
 					}
 					else {
-						System.out.print("■ ");
+						System.out.print("＊ ");
 					}
 				}
 				else if(map.get(n).get(i).getNum()==5) {

@@ -10,7 +10,7 @@ public class MapManager {
 		setMap();
 	}
 	
-	// 10x10¸Ê
+	// 10x10ë§µ
 	public void setMap() {
 		ArrayList<Map> temp;
 		for(int n=0; n<10; n++) {
@@ -27,9 +27,13 @@ public class MapManager {
 	public void printMap() {
 		System.out.println("==================[Map]=================");
 		for(int n=0; n<map.size(); n++) {
+			System.out.print("           ");
 			for(int i=0; i<map.get(0).size(); i++) {
 				if(map.get(n).get(i).getNum()==0) {
-					System.out.print("£ª ");
+					System.out.print("* ");
+				}
+				else if(map.get(n).get(i).getNum()==5) {
+					System.out.print("i ");
 				}
 			}
 			System.out.println();

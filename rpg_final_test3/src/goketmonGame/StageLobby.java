@@ -9,6 +9,7 @@ public class StageLobby {
 		while(true) {
 			mm.printMap();
 			System.out.println("==================Lobby================");
+			move();
 			System.out.println(" 1.사냥 2.상점 3.인벤토리 4.고켓몬 5.종료 ");
 			System.out.println(" : ");
 			int sel=GameManager.sc.nextInt();
@@ -30,5 +31,12 @@ public class StageLobby {
 			}
 		}
 	} 
+	
+	public void move() {
+		System.out.println("       ==========[이동]==========");
+		System.out.println("                   w");
+		System.out.println("                 a s d");
+		System.out.println("       =========================");
+	}
 
 }

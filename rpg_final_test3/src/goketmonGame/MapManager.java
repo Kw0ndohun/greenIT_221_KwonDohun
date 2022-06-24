@@ -6,6 +6,14 @@ public class MapManager {
 	static MapManager instance=new MapManager();
 	private ArrayList<ArrayList<Map>> map=new ArrayList<ArrayList<Map>>();
 	
+	public ArrayList<ArrayList<Map>> getMap() {
+		return map;
+	}
+
+	public void setMap(ArrayList<ArrayList<Map>> map) {
+		this.map = map;
+	}
+
 	public MapManager(){
 		setMap();
 	}

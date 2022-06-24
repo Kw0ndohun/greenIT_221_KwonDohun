@@ -1,6 +1,9 @@
 package goketmonGame;
 
 public class User {
+	
+	
+	
 	private String id;
 	private String pw;
 	private int num;

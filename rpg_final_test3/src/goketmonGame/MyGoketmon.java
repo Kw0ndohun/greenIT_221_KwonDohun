@@ -3,8 +3,6 @@ package goketmonGame;
 import java.util.ArrayList;
  
 public class MyGoketmon {
-	static MyGoketmon instance=new MyGoketmon();
-	private UnitManager um=UnitManager.instance;
 	//내 고켓몬 리스트
 	private ArrayList<Unit> goketmon=UnitManager.instance.getMyGoList();
 	//내 고켓몬 관리창
@@ -25,7 +23,6 @@ public class MyGoketmon {
 		this.myParty = myParty;
 	}
 	public MyGoketmon() {
-		um.setStartUnit();
 		//데리고 시작하는 두 마리 파티에 넣고 시작
 		for(int n=0; n<2; n++) {
 			myParty.add(goketmon.get(n));

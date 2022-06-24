@@ -25,13 +25,10 @@ public class UnitManager{
 		this.myGoList = myGoList;
 	}
 	String packa="goketmonGame.";
-	String[] mon= {"UnitGgobugi","UnitGgomadoll","UnitGgoret","UnitPairi","UnitPikachu"};
+	String[] mon= {"UnitGgobugi","UnitGgomadoll","UnitGgoret","UnitPairi","UnitPikachu","UnitNamuzigi"};
 	
-	public UnitManager() {
-		
-	}
 	//처음 몬스터 세마리 데리고 시작
-	public void setStartUnit() {
+	public UnitManager() {
 		for(int n=0; n<3; n++) {
 			addMyGoketmon();
 		}

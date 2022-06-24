@@ -8,7 +8,7 @@ public class UnitPairi extends Unit {
 	}
 	
 	@Override
-	public void speech() {
+	public void speech1() {
 		// TODO Auto-generated method stub
 		System.out.println("파이리는 화염방사를 사용했다");
 	}

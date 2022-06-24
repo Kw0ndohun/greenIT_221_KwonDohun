@@ -84,7 +84,7 @@ public class UnitManager{
 	//맵에 몬스터 생성
 	public void setMonForStage() {
 		//최대 2마리까지 랜덤으로 출현
-		int num=GameManager.sc.nextInt(2)+1;
+		int num=GameManager.ran.nextInt(2)+1;
 		for(int n=0; n<num; n++) {
 			addMonster();
 		}

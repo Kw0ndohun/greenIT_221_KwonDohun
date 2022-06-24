@@ -1,5 +1,7 @@
 package goketmonGame;
 
+import java.util.ArrayList;
+
 public class Stage {
 	// 랜덤세팅된 몬스터리스트를 받는 어레이 리스트 필요
 	static Stage instance = new Stage();
@@ -36,18 +38,25 @@ public class Stage {
 	}
 
 	public void playerTurn() {
+		ArrayList<Unit> al=pl.getMyGoketmonInstance().getMyParty();
 		// 파티원 수만큼 턴 부여
-		for (int n = 0; n < pl.getMyGoketmonInstance().getMyParty().size(); n++) {
-			if (!um.getMonList().isEmpty() && !pl.getMyGoketmonInstance().getMyParty().isEmpty()) {
+		for (int n = 0; n < al.size(); n++) {
+			if (!um.getMonList().isEmpty() && !al.isEmpty()) {
 				System.out.println("=================[전투 메뉴]================");
 				System.out.println("1.싸우다   2.가방 \n3.포켓몬   4.도망치다");
 
 				int sel = GameManager.sc.nextInt();
 				if (sel == 1) {
+					System.out.println("1.싸우다   2.가방 \n3.포켓몬   4.도망치다");
+					int selSkill = GameManager.sc.nextInt();
+					
+//					if() {
+//						
+//					}
 					System.out.println("공격할 대상을 선택해주세요 : ");
 					int selMon = GameManager.sc.nextInt() - 1;
 					if (selMon >= 0 && selMon < um.getMonList().size()) {
-						pl.getMyGoketmonInstance().getMyParty().get(n).attack(um.getMonList().get(selMon),pl.getMyGoketmonInstance().getMyParty().get(n));
+						al.get(n).attack(um.getMonList().get(selMon),al.get(n));
 						checkDie();
 					} else {
 						System.out.println("잘못된 선택입니다.");
@@ -55,14 +64,13 @@ public class Stage {
 						continue;
 					}
 				}
-
 				else if (sel == 2) {
 					Item temp = pl.getInvenInstance().selectUseItem();
 					if (temp.getTarget() == 1) {
 						printMyUnit();
 						System.out.println("사용할 몬스터:");
 						int useMonIdx = GameManager.sc.nextInt() - 1;
-						temp.effect(pl.getMyGoketmonInstance().getMyParty().get(useMonIdx));
+						temp.effect(al.get(useMonIdx));
 						pl.getInvenInstance().getInven().remove(temp);
 						im.getItemList().remove(temp);
 					} else {
@@ -78,11 +86,11 @@ public class Stage {
 				} else {
 					int ranNum = GameManager.ran.nextInt(10) + 1;
 					if (ranNum > 3) {
-						System.out.println(pl.getMyGoketmonInstance().getMyParty().get(0).getName() + "는(은) 도망쳤다!");
+						System.out.println(al.get(0).getName() + "는(은) 도망쳤다!");
 						run = false;
 						break;
 					} else {
-						System.out.println(pl.getMyGoketmonInstance().getMyParty().get(0).getName() + "는(은) 도망칠 수 없다!");
+						System.out.println(al.get(0).getName() + "는(은) 도망칠 수 없다!");
 					}
 				}
 			}
@@ -91,10 +99,11 @@ public class Stage {
 	}
 
 	public void monTurn() {
+		ArrayList<Unit> al=pl.getMyGoketmonInstance().getMyParty();
 		for (int n = 0; n < um.getMonList().size(); n++) {
-			if (!um.getMonList().isEmpty() && !pl.getMyGoketmonInstance().getMyParty().isEmpty()) {
-				int ranIdx = GameManager.ran.nextInt(pl.getMyGoketmonInstance().getMyParty().size());
-				um.getMonList().get(n).attack(pl.getMyGoketmonInstance().getMyParty().get(ranIdx),um.getMonList().get(n));
+			if (!um.getMonList().isEmpty() && !al.isEmpty()) {
+				int ranIdx = GameManager.ran.nextInt(al.size());
+				um.getMonList().get(n).attack(al.get(ranIdx),um.getMonList().get(n));
 				checkDie();
 			}
 		}

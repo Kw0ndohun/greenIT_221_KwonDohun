@@ -7,7 +7,7 @@ public class UnitGgomadoll extends Unit {
 		
 	}
 	@Override
-	public void speech() {
+	public void speech1() {
 		// TODO Auto-generated method stub
 		System.out.println("꼬마돌은 아이언 펀치를 사용했다");
 	}

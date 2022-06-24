@@ -8,7 +8,7 @@ public class UnitPikachu extends Unit {
 		
 	}
 	@Override
-	public void speech() {
+	public void speech1() {
 		// TODO Auto-generated method stub
 		System.out.println("피카츄는 백만볼트를 사용했다");
 	}

@@ -8,7 +8,7 @@ public class UnitGgobugi extends Unit{
 		
 	}
 	@Override
-	public void speech() {
+	public void speech1() {
 		// TODO Auto-generated method stub
 		System.out.println("꼬부기는 물대포를 사용했다");
 	}

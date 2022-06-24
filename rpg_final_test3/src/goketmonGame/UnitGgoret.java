@@ -7,7 +7,7 @@ public class UnitGgoret extends Unit {
 		
 	}
 	@Override
-	public void speech() {
+	public void speech1() {
 		// TODO Auto-generated method stub
 		System.out.println("꼬렛은 몸통박치기를 사용했다");
 	}

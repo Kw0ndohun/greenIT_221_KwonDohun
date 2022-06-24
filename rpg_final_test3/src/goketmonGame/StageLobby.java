@@ -1,5 +1,6 @@
 package goketmonGame;
 
+
 public class StageLobby {
 	static StageLobby instance=new StageLobby();
 	private MapManager mm=MapManager.instance;
@@ -27,7 +28,7 @@ public class StageLobby {
 			System.out.println(" : ");
 			String sel=GameManager.sc.next();
 			if(sel.equals("1")) {
-				Stage.instance.battle();
+//				Stage.instance.battle();
 			}
 			else if(sel.equals("2")) {
 				Shop.instance.sellMenu();
@@ -62,6 +63,7 @@ public class StageLobby {
 				System.out.println("맵의 끝이다");
 				continue;
 			}
+			checkMon();
 		}
 	} 
 	
@@ -89,9 +91,19 @@ public class StageLobby {
 		
 		return false;
 	}
+	//최초 플레이어 위치
 	public void setPlayer() {
 		mm.getMap().get(this.pY).get(this.pX).setNum(player);
 	}
-	
+	// 몬스터가 출현하는 맵인지 체크
+	public void checkMon() {
+		if(mm.getMap().get(this.pY).get(this.pX).isDangerMap()) {
+			int monEmerge=GameManager.ran.nextInt(10);
+			if(monEmerge<5) {
+				System.out.println("dd");
+				Stage.instance.battle();
+			}
+		}
+	}
 
 }

@@ -8,7 +8,7 @@ public class UnitNamuzigi extends Unit{
 		
 	}
 	@Override
-	public void speech() {
+	public void speech1() {
 		// TODO Auto-generated method stub
 		System.out.println("나무지기는 풀잎베기를 사용했다");
 	}

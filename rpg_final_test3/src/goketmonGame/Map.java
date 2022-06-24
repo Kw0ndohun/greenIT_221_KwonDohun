@@ -5,8 +5,15 @@ public class Map {
 	private UnitManager um=UnitManager.instance;
 	//¸Ê ¹øÈ£/À§Ä¡
 	private int num;
+	private boolean dangerMap=false;
 	
 	
+	public boolean isDangerMap() {
+		return dangerMap;
+	}
+	public void setDangerMap(boolean dangerMap) {
+		this.dangerMap = dangerMap;
+	}
 	public int getNum() {
 		return num;
 	}

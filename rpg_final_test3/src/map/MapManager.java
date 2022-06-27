@@ -1,12 +1,24 @@
-package goketmonGame;
+package map;
 
 import java.util.ArrayList;
+
+import goketmonGame.GameManager;
 
 public class MapManager {
 	static MapManager instance=new MapManager();
 	private final int MAPSIZE=10;
 	private ArrayList<ArrayList<Map>> map=new ArrayList<ArrayList<Map>>();
 	
+	
+	
+	public static MapManager getInstance() {
+		return instance;
+	}
+
+	public static void setInstance(MapManager instance) {
+		MapManager.instance = instance;
+	}
+
 	public ArrayList<ArrayList<Map>> getMap() {
 		return map;
 	}
@@ -38,7 +50,7 @@ public class MapManager {
 		
 		for(int n=0; n<MAPSIZE; n++) {
 			for(int i=0; i<MAPSIZE; i++) {
-				int ranDangerMap=GameManager.ran.nextInt(3);
+				int ranDangerMap=GameManager.getRan().nextInt(3);
 				if(ranDangerMap<1) {
 					map.get(n).get(i).setDangerMap(true);
 				}

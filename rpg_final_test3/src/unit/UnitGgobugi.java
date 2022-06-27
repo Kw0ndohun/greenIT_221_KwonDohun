@@ -1,25 +1,24 @@
-package goketmonGame;
+package unit;
 
-public class UnitGgoret extends Unit {
+public class UnitGgobugi extends Unit{
 	
 	
-	public UnitGgoret(){
+	
+	public UnitGgobugi(){
 		
 	}
 	@Override
 	public void speech1() {
 		// TODO Auto-generated method stub
-		System.out.println("²¿·¿Àº ¸öÅë¹ÚÄ¡±â¸¦ »ç¿ëÇß´Ù");
+		System.out.println("²¿ºÎ±â´Â ¹°´ëÆ÷¸¦ »ç¿ëÇß´Ù");
 	}
 	
 	@Override
 	public void settingUnit(int hp, int power, int def) {
-		// TODO Auto-generated method stub
-		super.setName("²¿·¿");
-		super.setHp(hp); 
+		super.setName("²¿ºÎ±â");
+		super.setHp(hp);
 		super.setMaxHp(hp);
 		super.setPower(power);
 		super.setDef(def);
 	}
-
-}
+} 

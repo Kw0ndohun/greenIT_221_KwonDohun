@@ -1,6 +1,8 @@
-package goketmonGame; 
+package unit; 
 
 import java.util.ArrayList;
+
+import goketmonGame.GameManager;
 
 public class UnitManager{
 	static UnitManager instance=new UnitManager();
@@ -9,6 +11,14 @@ public class UnitManager{
 	
 	
 	
+	public static UnitManager getInstance() {
+		return instance;
+	}
+
+	public static void setInstance(UnitManager instance) {
+		UnitManager.instance = instance;
+	}
+
 	public ArrayList<Unit> getMonList() {
 		return monList;
 	}
@@ -24,11 +34,15 @@ public class UnitManager{
 	public void setMyGoList(ArrayList<Unit> myGoList) {
 		this.myGoList = myGoList;
 	}
-	String packa="goketmonGame.";
+	String packa="unit.";
 	String[] mon= {"UnitGgobugi","UnitGgomadoll","UnitGgoret","UnitPairi","UnitPikachu","UnitNamuzigi"};
 	
-	//처음 몬스터 세마리 데리고 시작
 	public UnitManager() {
+		
+	}
+	
+	//처음 몬스터 세마리 데리고 시작
+	public void setUserMon() {
 		for(int n=0; n<3; n++) {
 			addMyGoketmon();
 		}
@@ -42,10 +56,10 @@ public class UnitManager{
 	
 	//랜덤유닛생성
 	public Unit ranAddUnit() {
-		int num=GameManager.ran.nextInt(this.mon.length);
-		int ranHp=GameManager.ran.nextInt(100)+100;
-		int ranPower=GameManager.ran.nextInt(30)+10;
-		int ranDef=GameManager.ran.nextInt(10)+5;
+		int num=GameManager.getRan().nextInt(this.mon.length);
+		int ranHp=GameManager.getRan().nextInt(100)+100;
+		int ranPower=GameManager.getRan().nextInt(30)+10;
+		int ranDef=GameManager.getRan().nextInt(10)+5;
 		try {
 			Class<?> clazz=Class.forName(packa+mon[num]);
 			Object ob=clazz.getDeclaredConstructor().newInstance();
@@ -84,7 +98,7 @@ public class UnitManager{
 	//맵에 몬스터 생성
 	public void setMonForStage() {
 		//최대 2마리까지 랜덤으로 출현
-		int num=GameManager.ran.nextInt(2)+1;
+		int num=GameManager.getRan().nextInt(2)+1;
 		for(int n=0; n<num; n++) {
 			addMonster();
 		}

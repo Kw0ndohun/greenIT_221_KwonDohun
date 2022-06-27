@@ -1,8 +1,10 @@
-package goketmonGame;
+package map;
+
+import unit.UnitManager;
 
 public class Map {
 	//맵에 몬스터 생성
-	private UnitManager um=UnitManager.instance;
+	private UnitManager um=UnitManager.getInstance();
 	//맵 번호/위치
 	private int num;
 	private boolean dangerMap=false;

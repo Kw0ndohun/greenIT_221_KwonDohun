@@ -1,26 +1,24 @@
-package goketmonGame;
- 
-public class UnitPikachu extends Unit {
+package unit;
+
+public class UnitNamuzigi extends Unit{
 	
 	
 	
-	public UnitPikachu(){
+	public UnitNamuzigi(){
 		
 	}
 	@Override
 	public void speech1() {
 		// TODO Auto-generated method stub
-		System.out.println("피카츄는 백만볼트를 사용했다");
+		System.out.println("나무지기는 풀잎베기를 사용했다");
 	}
 	
 	@Override
 	public void settingUnit(int hp, int power, int def) {
-		// TODO Auto-generated method stub
-		super.setName("피카츄");
+		super.setName("나무지기");
 		super.setHp(hp);
 		super.setMaxHp(hp);
 		super.setPower(power);
 		super.setDef(def);
 	}
-
-}
+} 

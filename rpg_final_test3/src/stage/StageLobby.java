@@ -1,10 +1,14 @@
-package goketmonGame;
+package stage;
 
+import goketmonGame.GameManager;
+import goketmonGame.Player;
+import goketmonGame.Shop;
+import map.MapManager;
 
 public class StageLobby {
 	static StageLobby instance=new StageLobby();
-	private MapManager mm=MapManager.instance;
-	private Player pl=Player.instance;
+	private MapManager mm=MapManager.getInstance();
+	private Player pl=Player.getInstance();
 	private int pX=0;
 	private int pY=0;
 	private int player=5;
@@ -24,20 +28,21 @@ public class StageLobby {
 			System.out.println("                   w");
 			System.out.println("                 a s d");
 			System.out.println("       =========================");
-			System.out.println("    1.사냥 2.상점 3.인벤토리 4.고켓몬 5.종료 ");
+			System.out.println("    1.상점 2.인벤토리 3.고켓몬 4.종료 ");
 			System.out.println(" : ");
-			String sel=GameManager.sc.next();
+			String sel=GameManager.getSc().next();
 			if(sel.equals("1")) {
-//				Stage.instance.battle();
+				Shop.getInstance().sellMenu();
 			}
 			else if(sel.equals("2")) {
-				Shop.instance.sellMenu();
-			}
-			else if(sel.equals("3")) {
 				pl.getInvenInstance().invenMenu();
 			}
-			else if(sel.equals("4")) {
+			else if(sel.equals("3")) {
 				pl.getMyGoketmonInstance().goketmonMenu();
+			}
+			else if(sel.equals("4")) {
+				GameManager.setGame(false);
+				break;
 			}
 			else if(sel.equals("w")) {
 				yy--;
@@ -50,10 +55,6 @@ public class StageLobby {
 			}
 			else if(sel.equals("d")) {
 				xx++;
-			}
-			else if(sel.equals("5")) {
-				GameManager.game=false;
-				break;
 			}
 			else {
 				System.out.println("잘못 입력");
@@ -98,12 +99,20 @@ public class StageLobby {
 	// 몬스터가 출현하는 맵인지 체크
 	public void checkMon() {
 		if(mm.getMap().get(this.pY).get(this.pX).isDangerMap()) {
-			int monEmerge=GameManager.ran.nextInt(10);
+			int monEmerge=GameManager.getRan().nextInt(10);
 			if(monEmerge<5) {
 				System.out.println("dd");
 				Stage.instance.battle();
 			}
 		}
+	}
+
+	public static StageLobby getInstance() {
+		return instance;
+	}
+
+	public static void setInstance(StageLobby instance) {
+		StageLobby.instance = instance;
 	}
 
 }

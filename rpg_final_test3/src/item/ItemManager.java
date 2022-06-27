@@ -1,4 +1,4 @@
-package goketmonGame;
+package item;
 
 import java.util.ArrayList;
  
@@ -6,6 +6,14 @@ public class ItemManager {
 	static ItemManager instance=new ItemManager();
 	private ArrayList<Item> itemList=new ArrayList<Item>();
 	
+	
+	
+	public static ItemManager getInstance() {
+		return instance;
+	}
+	public static void setInstance(ItemManager instance) {
+		ItemManager.instance = instance;
+	}
 	public ArrayList<Item> getItemList() {
 		return itemList;
 	}

@@ -1,5 +1,7 @@
 package goketmonGame;
 
+import unit.Unit;
+
 public interface Fn {
 	
 	//½ºÅ³

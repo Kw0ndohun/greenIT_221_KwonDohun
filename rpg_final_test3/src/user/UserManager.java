@@ -1,6 +1,10 @@
-package goketmonGame;
+package user;
 
 import java.util.ArrayList;
+
+import goketmonGame.GameManager;
+import goketmonGame.Player;
+import unit.UnitManager;
 
 public class UserManager {
 	//유저매니저 인스턴스
@@ -9,8 +13,8 @@ public class UserManager {
 	private ArrayList<User> user=new ArrayList<User>();
 	//유저메뉴 실행
 	boolean run=true;
-	
-	
+	private UnitManager um=UnitManager.getInstance();
+	private Player pl=Player.getInstance();
 	
 	
 	//유저메뉴
@@ -34,6 +38,14 @@ public class UserManager {
 //		}
 //	}
 	
+	public static UserManager getInstance() {
+		return instance;
+	}
+
+	public static void setInstance(UserManager instance) {
+		UserManager.instance = instance;
+	}
+
 	public ArrayList<User> getUser() {
 		return user;
 	}
@@ -45,23 +57,25 @@ public class UserManager {
 	//유저 추가
 	public void addUser() {
 		System.out.println("사용할 아이디:");
-		String id=GameManager.sc.next();
+		String id=GameManager.getSc().next();
 		if(checkId(id)==-1) {
 			System.out.println("사용할 비밀번호:");
-			String pw=GameManager.sc.next();
-			int num=GameManager.ran.nextInt(8999)+1000;
+			String pw=GameManager.getSc().next();
+			int num=GameManager.getRan().nextInt(8999)+1000;
 			User u=new User(id,pw,num);
 			user.add(u);
+			um.setUserMon();
+			pl.getMyGoketmonInstance().setMyParty();
 		}
 	}
 	
 	//유저 삭제
 	public void delUser(int log) {
 		System.out.println("정말로 탈퇴하겠습니까? \n Y/N :");
-		String sel=GameManager.sc.next();
+		String sel=GameManager.getSc().next();
 		if(sel.equals("Y")) {
 			user.remove(log);
-			GameManager.log=-1;
+			GameManager.setLog(-1);
 		}
 		else {
 			System.out.println("종료되었습니다.");

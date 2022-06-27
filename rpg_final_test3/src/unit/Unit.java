@@ -1,4 +1,6 @@
-package goketmonGame;
+package unit;
+
+import goketmonGame.Fn;
 
 public abstract class Unit implements Fn{
 	

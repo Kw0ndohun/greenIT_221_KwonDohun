@@ -1,10 +1,13 @@
 package goketmonGame;
 
 import java.util.ArrayList;
+
+import unit.Unit;
+import unit.UnitManager;
  
 public class MyGoketmon {
 	//내 고켓몬 리스트
-	private ArrayList<Unit> goketmon=UnitManager.instance.getMyGoList();
+	private ArrayList<Unit> goketmon=UnitManager.getInstance().getMyGoList();
 	//내 고켓몬 관리창
 	private ArrayList<Unit> myParty=new ArrayList<Unit>();
 	//최대 파티원
@@ -23,12 +26,17 @@ public class MyGoketmon {
 		this.myParty = myParty;
 	}
 	public MyGoketmon() {
-		//데리고 시작하는 두 마리 파티에 넣고 시작
-		for(int n=0; n<2; n++) {
-			myParty.add(goketmon.get(n));
-			goketmon.get(n).setParty(true);
-		}
+		
 	}
+	
+	public void setMyParty() {
+		//데리고 시작하는 두 마리 파티에 넣고 시작
+				for(int n=0; n<2; n++) {
+					myParty.add(goketmon.get(n));
+					goketmon.get(n).setParty(true);
+				}
+	}
+	
 	//내 고켓몬 메뉴
 	public void goketmonMenu() {
 		while(true) {

@@ -1,24 +1,25 @@
-package goketmonGame;
+package unit;
 
-public class UnitNamuzigi extends Unit{
+public class UnitGgoret extends Unit {
 	
 	
-	
-	public UnitNamuzigi(){
+	public UnitGgoret(){
 		
 	}
 	@Override
 	public void speech1() {
 		// TODO Auto-generated method stub
-		System.out.println("나무지기는 풀잎베기를 사용했다");
+		System.out.println("꼬렛은 몸통박치기를 사용했다");
 	}
 	
 	@Override
 	public void settingUnit(int hp, int power, int def) {
-		super.setName("나무지기");
-		super.setHp(hp);
+		// TODO Auto-generated method stub
+		super.setName("꼬렛");
+		super.setHp(hp); 
 		super.setMaxHp(hp);
 		super.setPower(power);
 		super.setDef(def);
 	}
-} 
+
+}

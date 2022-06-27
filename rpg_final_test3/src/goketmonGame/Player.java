@@ -7,6 +7,18 @@ public class Player {
 	private MyGoketmon myGoketmonInstance=new MyGoketmon(); 
 	private Inventory invenInstance=new Inventory();
 	
+	
+	
+	public static Player getInstance() {
+		return instance;
+	}
+
+
+	public static void setInstance(Player instance) {
+		Player.instance = instance;
+	}
+
+
 	public MyGoketmon getMyGoketmonInstance() {
 		return myGoketmonInstance;
 	}

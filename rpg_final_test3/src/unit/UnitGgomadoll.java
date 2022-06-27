@@ -1,4 +1,4 @@
-package goketmonGame;
+package unit;
 
 public class UnitGgomadoll extends Unit {
 	

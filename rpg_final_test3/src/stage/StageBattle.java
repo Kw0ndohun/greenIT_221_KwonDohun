@@ -1,4 +1,4 @@
-package goketmonGame;
+package stage;
 
 public class StageBattle {
 	//น่ฦฒ

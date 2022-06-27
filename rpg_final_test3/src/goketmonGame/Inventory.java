@@ -2,6 +2,8 @@ package goketmonGame;
 
 import java.util.ArrayList;
 
+import item.Item;
+
 public class Inventory {
 	private ArrayList<Item> inven=new ArrayList<Item>();
 	

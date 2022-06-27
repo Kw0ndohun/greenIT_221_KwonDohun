@@ -1,4 +1,6 @@
-package goketmonGame;
+package item;
+
+import unit.Unit;
 
 public class ItemPotion extends Item{
 

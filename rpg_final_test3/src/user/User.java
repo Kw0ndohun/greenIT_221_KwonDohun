@@ -1,4 +1,4 @@
-package goketmonGame;
+package user;
 
 public class User {
 	

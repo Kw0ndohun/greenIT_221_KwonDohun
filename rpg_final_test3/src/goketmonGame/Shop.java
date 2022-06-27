@@ -1,12 +1,14 @@
 package goketmonGame;
 
+import item.ItemManager;
+
 public class Shop {
 	//아이템매니저 아이템 리스트가져오기
 	//몬스터볼 판매
 	//회복아이템 
 	static Shop instance=new Shop();
 	//샵은 아이템 매니저를 사용하는게 맞음.
-	private ItemManager im=ItemManager.instance;
+	private ItemManager im=ItemManager.getInstance();
 	//샵에 플레이어가 와서 이용함.
 	private Player pl=Player.instance;
 	public void sellMenu() {
@@ -29,6 +31,12 @@ public class Shop {
 				break;
 			}
 		}
+	}
+	public static Shop getInstance() {
+		return instance;
+	}
+	public static void setInstance(Shop instance) {
+		Shop.instance = instance;
 	}
 	
 	

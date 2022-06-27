@@ -1,13 +1,20 @@
-package goketmonGame;
+package stage;
 
 import java.util.ArrayList;
+
+import goketmonGame.GameManager;
+import goketmonGame.Player;
+import item.Item;
+import item.ItemManager;
+import unit.Unit;
+import unit.UnitManager;
 
 public class Stage {
 	// 랜덤세팅된 몬스터리스트를 받는 어레이 리스트 필요
 	static Stage instance = new Stage();
-	private UnitManager um = UnitManager.instance;
-	private ItemManager im = ItemManager.instance;
-	private Player pl=Player.instance;
+	private UnitManager um = UnitManager.getInstance();
+	private ItemManager im = ItemManager.getInstance();
+	private Player pl=Player.getInstance();
 	private boolean run;
 
 	public Stage() {
@@ -45,16 +52,16 @@ public class Stage {
 				System.out.println("=================[전투 메뉴]================");
 				System.out.println("1.싸우다   2.가방 \n3.포켓몬   4.도망치다");
 
-				int sel = GameManager.sc.nextInt();
+				int sel = GameManager.getSc().nextInt();
 				if (sel == 1) {
 					System.out.println("1.싸우다   2.가방 \n3.포켓몬   4.도망치다");
-					int selSkill = GameManager.sc.nextInt();
+					int selSkill = GameManager.getSc().nextInt();
 					
 //					if() {
 //						
 //					}
 					System.out.println("공격할 대상을 선택해주세요 : ");
-					int selMon = GameManager.sc.nextInt() - 1;
+					int selMon = GameManager.getSc().nextInt() - 1;
 					if (selMon >= 0 && selMon < um.getMonList().size()) {
 						al.get(n).attack(um.getMonList().get(selMon),al.get(n));
 						checkDie();
@@ -69,14 +76,14 @@ public class Stage {
 					if (temp.getTarget() == 1) {
 						printMyUnit();
 						System.out.println("사용할 몬스터:");
-						int useMonIdx = GameManager.sc.nextInt() - 1;
+						int useMonIdx = GameManager.getSc().nextInt() - 1;
 						temp.effect(al.get(useMonIdx));
 						pl.getInvenInstance().getInven().remove(temp);
 						im.getItemList().remove(temp);
 					} else {
 						printMon();
 						System.out.println("사용할 몬스터:");
-						int useMonIdx = GameManager.sc.nextInt() - 1;
+						int useMonIdx = GameManager.getSc().nextInt() - 1;
 						temp.effect(um.getMonList().get(useMonIdx));
 						pl.getInvenInstance().getInven().remove(temp);
 						im.getItemList().remove(temp);
@@ -84,7 +91,7 @@ public class Stage {
 				} else if (sel == 3) {
 					pl.getMyGoketmonInstance().changeParty();
 				} else {
-					int ranNum = GameManager.ran.nextInt(10) + 1;
+					int ranNum = GameManager.getRan().nextInt(10) + 1;
 					if (ranNum > 3) {
 						System.out.println(al.get(0).getName() + "는(은) 도망쳤다!");
 						run = false;
@@ -102,7 +109,7 @@ public class Stage {
 		ArrayList<Unit> al=pl.getMyGoketmonInstance().getMyParty();
 		for (int n = 0; n < um.getMonList().size(); n++) {
 			if (!um.getMonList().isEmpty() && !al.isEmpty()) {
-				int ranIdx = GameManager.ran.nextInt(al.size());
+				int ranIdx = GameManager.getRan().nextInt(al.size());
 				um.getMonList().get(n).attack(al.get(ranIdx),um.getMonList().get(n));
 				checkDie();
 			}

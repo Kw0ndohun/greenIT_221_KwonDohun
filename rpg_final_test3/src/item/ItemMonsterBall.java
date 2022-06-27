@@ -1,7 +1,11 @@
-package goketmonGame;
+package item;
+
+import goketmonGame.GameManager;
+import unit.Unit;
+import unit.UnitManager;
 
 public class ItemMonsterBall extends Item{
-	private UnitManager um=UnitManager.instance;
+	private UnitManager um=UnitManager.getInstance();
 	
 	public ItemMonsterBall() {
 		super.setName("몬스터볼");
@@ -27,7 +31,7 @@ public class ItemMonsterBall extends Item{
 		}
 		int catchPer=unit.getMaxHp()-unit.getHp();
 		//ranCatchNum(랜덤잡을확률)은 유닛의 최대 체력까지의 범위에서 임의의 숫자.
-		int ranCatchNum=GameManager.ran.nextInt(unit.getMaxHp());
+		int ranCatchNum=GameManager.getRan().nextInt(unit.getMaxHp());
 		// catchPer 범위에 속하는 ranCatchNum이 나오면 포획 성공
 		if(ranCatchNum<=catchPer) {
 			System.out.println("신난다!");

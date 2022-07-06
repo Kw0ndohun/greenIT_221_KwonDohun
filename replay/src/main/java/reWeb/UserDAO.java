@@ -30,6 +30,7 @@ public class UserDAO {
 	private String sqlSeach="select * from users where id=? AND password=?";
 	private String sqldelUser="delete * from users where id=?";
 	
+	
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -59,12 +60,12 @@ public class UserDAO {
 			pstmt.setString(8, userDto.getMobile());
 			pstmt.executeUpdate();
 			conn=null;
-			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 			// TODO: handle exception
 		}
+		return true;
 	}
 	//로그인 체크
 	public boolean loginUser(UserDTO userDto) {
@@ -107,5 +108,6 @@ public class UserDAO {
 			return false;
 		}
 	}
+	
 	
 }

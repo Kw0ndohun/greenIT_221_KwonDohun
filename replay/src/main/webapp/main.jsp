@@ -14,6 +14,7 @@
         </div>
         <div class="buttons">
         	<input type="button" value="회원탈퇴" onclick="location.href='leavePro.jsp'">
+        	<input type="button" value="게시판" onclick="location.href='board.jsp'">
         </div>
     </form>
 	

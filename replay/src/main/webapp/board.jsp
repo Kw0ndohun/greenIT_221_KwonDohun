@@ -1,3 +1,6 @@
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="reWeb.BoardDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,19 +17,22 @@
 <body>
 <%
 	BoardDAO dao=BoardDAO.getInstance();
-	int no=1;
-	int code=1001;
-	String title="";
-	int viewCnt=0;
-	int likeCnt=0;
-	String createdAt="";
-	String modifiedAt="";
+	
+	//sql
+	Connection conn=null;
+	ResultSet rs=null;
+	PreparedStatement pstmt=null;
+	
+	String sqlBoard="select * from board";
+	
 	//sql에서 가져온 데이터들을 1~끝까지 읽어 여기 형식에 넣어서 
 	//테이블 바디에 추가해줘야함
 	// 테이블 바디에 추가>?
 	// sql에서 테이터를 가져와서 위의 변수들에 초기화해주고
 	// 테이블바디를 늘려주면서 변수들을 넣어줘야함.
 	// t바디 부분에서 반복문을 돌려서 td부분을 생성해주면 됨.
+	
+			
 %>
     <h1>DOOOO BOARD</h1>
     <div class="boardListContainer">
@@ -43,8 +49,8 @@
             </thead>
             <tbody>
 				<%
-            	ResultSet rs=dao.board();
             	//int boardCnt=dao.boardCnt();
+				int rsCnt=0;            	
             	int pages=1;
             	int boardCnt;
             	if(dao.boardCnt()<=pages*10){
@@ -54,8 +60,16 @@
             		boardCnt=pages*10;
             	}
             	
-            	for(int n=pages-1; n<boardCnt; n++){
-            		String url="boardView.jsp";
+            	//for(int n=pages-1; n<boardCnt; n++){
+            		
+            String url="boardView.jsp";
+        	conn= dao.getConnection();
+			try {
+				pstmt=conn.prepareStatement(sqlBoard);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+				
+            		
             	%>
                 <tr>
                     <td><%=rs.getInt("no")%></td>
@@ -66,7 +80,13 @@
                     <td><%=rs.getString("modifiedAt")%></td>
                 </tr>
                 <% 
-            	}
+				}
+					conn=null;
+					rs=null;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+            	//}
                 %>
             </tbody>
         </table>

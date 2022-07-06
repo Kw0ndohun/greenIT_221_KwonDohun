@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class BoardDAO {
 	
@@ -82,23 +83,57 @@ public class BoardDAO {
 			}
 		}
 		//게시글 가져오기
-		public ResultSet board() {
+		public ArrayList<ResultSet> board() {
 			conn= getConnection();
+			ArrayList<ResultSet> rsSet=new ArrayList<ResultSet>();
 			try {
 				pstmt=conn.prepareStatement(sqlBoard);
 				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					return rs;
+				while(rs.next()) {
+					rsSet.add(rs);
+					System.out.println("?!");
 				}
-				else {
-					return null;
-				}
+				conn=null;
+				rs=null;
+				return rsSet;
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;
 			}
 		}
-		//게시글 한개 가져오기
+		/*public ArrayList<ResultSet> board() {
+			conn= getConnection();
+			ArrayList<ResultSet> rsSet=new ArrayList<ResultSet>();
+			try {
+				pstmt=conn.prepareStatement(sqlBoard);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					rsSet.add(rs);
+					System.out.println("?!");
+				}
+				conn=null;
+				rs=null;
+				return rsSet;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}*/
+		//다음 게시글 가져오기
+		/*public ResultSet boardMore() {
+			try {
+				if(rs.next()) {
+					return rs;
+				}
+				else {
+					return rs;
+				}
+			} catch (Exception e) {
+				return null;
+				// TODO: handle exception
+			}
+		}*/
+		//게시글 내용 한개 가져오기
 		public ResultSet boardNo(String no) {
 			conn= getConnection();
 			try {
@@ -116,6 +151,7 @@ public class BoardDAO {
 				return null;
 			}
 		}
+		
 		//게시글 수정하기
 		public ResultSet updateBoard() {
 			conn= getConnection();

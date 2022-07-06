@@ -26,12 +26,14 @@ public class BoardDAO {
 	
 	private String url="jdbc:mysql://localhost:3306/firstWeb";
 	private String user="root";
-	private String password="root";
+	private String password="12341";
 	
 	private String sqlBoardCnt="select count(*) from board";
 	private String sqlBoard="select * from board";
-	private String sqlBoardDel="delete from board where code=?";
+	private String sqlBoardDel="delete from board where no=?";
 	private String sqlBoardNo="select * from board where no=?";
+	private String sqlBoardUpdateTitle="update board set title=? where no=?";
+	private String sqlBoardUpdateContents="update board set contents=? where no=?";
 	//private String sql="insert into board values(?,?,?,?,?,?,?,?)";
 	private String sql="insert into board(title,contents,createdAt) values(?,?,?)";
 	public Connection getConnection() {
@@ -91,7 +93,7 @@ public class BoardDAO {
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
 					rsSet.add(rs);
-					System.out.println("?!");
+					System.out.println("?!"); 
 				}
 				conn=null;
 				rs=null;
@@ -170,11 +172,11 @@ public class BoardDAO {
 			}
 		}
 		//게시글 삭제하기
-		public void delBoard(int code) {
+		public void delBoard(int no) {
 			conn= getConnection();
 			try {
 				pstmt=conn.prepareStatement(sqlBoardDel);
-				pstmt.setInt(1, code);
+				pstmt.setInt(1, no);
 				rs=pstmt.executeQuery();
 				if(rs.next()) {
 				}
@@ -182,4 +184,6 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 		}
+		
+		
 }

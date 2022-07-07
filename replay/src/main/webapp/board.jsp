@@ -1,3 +1,4 @@
+<%@page import="reWeb.BoardDTO"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.ArrayList"%>
@@ -25,6 +26,7 @@
 	
 	String sqlBoard="select * from board";
 	
+	ArrayList<BoardDTO> boardList=dao.boardList();
 	//sql에서 가져온 데이터들을 1~끝까지 읽어 여기 형식에 넣어서 
 	//테이블 바디에 추가해줘야함
 	// 테이블 바디에 추가>?
@@ -63,28 +65,32 @@
             	//for(int n=pages-1; n<boardCnt; n++){
             		
             String url="boardView.jsp";
+			/*try {
         	conn= dao.getConnection();
-			try {
 				pstmt=conn.prepareStatement(sqlBoard);
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
-				
-            		
-            	%>
-                <tr>
-                    <td><%=rs.getInt("no")%></td>
-                    <td><a href="<%=url+"?no="+rs.getInt("no")%>"><%=rs.getString("title")%></a></td>
-                    <td><%=rs.getInt("viewCnt")%></td>
-                    <td><%=rs.getInt("likeCnt")%></td>
-                    <td><%=rs.getString("createdAt")%></td>
-                    <td><%=rs.getString("modifiedAt")%></td>
-                </tr>
-                <% 
 				}
 					conn=null;
 					rs=null;
 				} catch (Exception e) {
 					e.printStackTrace();
+				}
+				*/
+				for(int n=0; n<boardList.size(); n++){
+					
+				
+            	%>
+                <tr>
+                    <td><%=boardList.get(n).getNo()%></td>
+                    <td><a href="<%=url+"?no="+boardList.get(n).getNo()%>"><%=boardList.get(n).getTitle()%></a></td>
+                    <td><%=boardList.get(n).getViewCnt()%></td>
+                    <td><%=boardList.get(n).getLikeCnt()%></td>
+                    <td><%=boardList.get(n).getCreatedAt()%></td>
+                    <td><%=boardList.get(n).getModifiedAt()%></td>
+                </tr>
+                <% 
+                
 				}
             	//}
                 %>

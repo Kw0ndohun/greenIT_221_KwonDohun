@@ -86,6 +86,33 @@ public class BoardDAO {
 				return 0;
 			}
 		}
+		
+		//보드 게시글 리스트 가져오기
+		public ArrayList<BoardDTO> boardList() {
+			ArrayList<BoardDTO> boardList=new ArrayList<BoardDTO>();
+			conn= getConnection();
+			try {
+				pstmt=conn.prepareStatement(sqlBoard);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					int getNo=rs.getInt("no");
+					String title=rs.getString("title");
+					String contents=rs.getString("contents");
+					int viewCnt=rs.getInt("viewCnt");
+					int likeCnt=rs.getInt("likeCnt");
+					String createdAt=rs.getString("createdAt");
+					String modifiedAt=rs.getString("modifiedAt");
+					
+					BoardDTO boardDto=new BoardDTO(getNo,title,contents,viewCnt,likeCnt,createdAt,modifiedAt);
+					boardList.add(boardDto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+			return boardList;
+		}
+		
 //		//게시글 가져오기
 //		public ArrayList<ResultSet> board() {
 //			conn= getConnection();
@@ -138,14 +165,23 @@ public class BoardDAO {
 			}
 		}*/
 		//게시글 내용 한개 가져오기
-		public ResultSet boardNo(String no) {
+		public BoardDTO boardNo(String no) {
 			conn= getConnection();
 			try {
 				pstmt=conn.prepareStatement(sqlBoardNo);
 				pstmt.setString(1,no);
 				rs=pstmt.executeQuery();
 				if(rs.next()) {
-					return rs;
+					int getNo=rs.getInt("no");
+					String title=rs.getString("title");
+					String contents=rs.getString("contents");
+					int viewCnt=rs.getInt("viewCnt");
+					int likeCnt=rs.getInt("likeCnt");
+					String createdAt=rs.getString("createdAt");
+					String modifiedAt=rs.getString("modifiedAt");
+					
+					BoardDTO boardDto=new BoardDTO(getNo,title,contents,viewCnt,likeCnt,createdAt,modifiedAt);
+					return boardDto;
 				}
 				else {
 					return null;

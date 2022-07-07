@@ -52,7 +52,6 @@
             <tbody>
 				<%
             	//int boardCnt=dao.boardCnt();
-				int rsCnt=0;            	
             	int pages=1;
             	int boardCnt;
             	if(dao.boardCnt()<=pages*10){

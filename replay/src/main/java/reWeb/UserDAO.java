@@ -24,7 +24,7 @@ public class UserDAO {
 	
 	private String url="jdbc:mysql://localhost:3306/usersDb";
 	private String user="root";
-	private String password="12341";
+	private String password="root";
 	
 	private String sql="insert into users values(?,?,?,?,?,?,?,?)";
 	private String sqlSeach="select * from users where id=? AND password=?";

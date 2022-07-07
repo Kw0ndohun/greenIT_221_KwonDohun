@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="reWeb.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,16 +10,25 @@
     <title>BOARD UPDATE</title>
 </head>
 <body>
-    <h1>DOOOO BOARD UPDATE</h1>
+<%	
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+	BoardDAO dao=BoardDAO.getInstance();
+	String no=request.getParameter("no");
+	ResultSet rs=dao.boardNo(no);
+%>
+    <h1>DOOOO UPDATE</h1>
     <div class="formContainer">
- 		<!-- 폼에 작성된 내용을 폼 프로로 보내서 검증 -->
-        <form method="post" action="boardWriteFormPro.jsp">
-            <input type="text" name="title" id="title" required placeholder="title"><br>
-            <textarea name="contents" placeholder="contents text" required></textarea><br>
-            <input type="button" value="뒤로가기" onclick="board.jsp">
-            <input type="button" value="글쓰기" onclick="boardContentsCheck(form)">
+        <form method="post" action="boardUpdateFormPro.jsp?no=<%=no%>">
+            <input type="text" name="title" id="title" required placeholder="title" value="<%=rs.getString("title")%>"><br>
+            <textarea name="contents" placeholder="contents text" required>
+            <%=rs.getString("contents")%>
+            </textarea><br>
+            <input type="button" value="뒤로가기" onclick="location.href='board.jsp'">
+            <input type="button" value="수정완료" onclick="boardContentsCheck(form)">
         </form>
-    </div>
+
+    </div> 
     <script src="script/board_validation.js"></script>
 </body>
 </html>

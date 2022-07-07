@@ -8,28 +8,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<body>
-	
 	<%
 	
 	request.setCharacterEncoding("UTF-8");
     response.setCharacterEncoding("UTF-8");
 	
 		BoardDAO dao=BoardDAO.getInstance();
-		String title=request.getParameter("title");
-		String contents=request.getParameter("contents");
 		String no=request.getParameter("no");
 		
 		
 		String url="";
-		if(dao.updateBoard(no,title, contents)){
+		if(dao.delBoard(no)){
 			url="board.jsp";
 		}
 		else{
-			url="boardWriteForm.jsp";
+			url="boardView.jsp?no="+no;
 		}
 		response.sendRedirect(url);
 	%>
-</body>
 </body>
 </html>

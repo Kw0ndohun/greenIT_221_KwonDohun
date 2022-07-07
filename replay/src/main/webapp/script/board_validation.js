@@ -3,7 +3,10 @@
  */
 
 // 로그인한 상태인지 체크. 로그인 해야만 이용가능한 기능에 사용
-function loginLogCk(log){
+
+const log=$('#log').get(0).value;
+
+function loginLogCk(){
 	if(log===""||log===null||log===undefined){
 		alert("로그인이나 해");
 	}	

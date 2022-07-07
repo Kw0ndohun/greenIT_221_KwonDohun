@@ -26,7 +26,7 @@ public class BoardDAO {
 	
 	private String url="jdbc:mysql://localhost:3306/firstWeb";
 	private String user="root";
-	private String password="12341";
+	private String password="root";
 	
 	private String sqlBoardCnt="select count(*) from board";
 	private String sqlBoard="select * from board";
@@ -34,6 +34,8 @@ public class BoardDAO {
 	private String sqlBoardNo="select * from board where no=?";
 	private String sqlBoardUpdateTitle="update board set title=? where no=?";
 	private String sqlBoardUpdateContents="update board set contents=? where no=?";
+	private String sqlBoardUpdateView="update board set viewCnt=? where no=?";
+	private String sqlBoardUpdateLike="update board set likeCnt=? where no=?";
 	//private String sql="insert into board values(?,?,?,?,?,?,?,?)";
 	private String sql="insert into board(title,contents,createdAt) values(?,?,?)";
 	public Connection getConnection() {
@@ -84,25 +86,25 @@ public class BoardDAO {
 				return 0;
 			}
 		}
-		//게시글 가져오기
-		public ArrayList<ResultSet> board() {
-			conn= getConnection();
-			ArrayList<ResultSet> rsSet=new ArrayList<ResultSet>();
-			try {
-				pstmt=conn.prepareStatement(sqlBoard);
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					rsSet.add(rs);
-					System.out.println("?!"); 
-				}
-				conn=null;
-				rs=null;
-				return rsSet;
-			} catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
+//		//게시글 가져오기
+//		public ArrayList<ResultSet> board() {
+//			conn= getConnection();
+//			ArrayList<ResultSet> rsSet=new ArrayList<ResultSet>();
+//			try {
+//				pstmt=conn.prepareStatement(sqlBoard);
+//				rs=pstmt.executeQuery();
+//				while(rs.next()) {
+//					rsSet.add(rs);
+//					System.out.println("?!"); 
+//				}
+//				conn=null;
+//				rs=null;
+//				return rsSet;
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				return null;
+//			}
+//		}
 		/*public ArrayList<ResultSet> board() {
 			conn= getConnection();
 			ArrayList<ResultSet> rsSet=new ArrayList<ResultSet>();
@@ -155,35 +157,64 @@ public class BoardDAO {
 		}
 		
 		//게시글 수정하기
-		public ResultSet updateBoard() {
+		public boolean updateBoard(String no,String title, String con) {
 			conn= getConnection();
 			try {
-				pstmt=conn.prepareStatement(sqlBoard);
-				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					return rs;
-				}
-				else {
-					return null;
-				}
+				pstmt=conn.prepareStatement(sqlBoardUpdateTitle);
+				pstmt.setString(1, title);
+				pstmt.setString(2, no);
+				pstmt.executeUpdate();
+				pstmt=conn.prepareStatement(sqlBoardUpdateContents);
+				pstmt.setString(1, con);
+				pstmt.setString(2, no);
+				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
-				return null;
+				return false;
 			}
+			return true;
 		}
 		//게시글 삭제하기
-		public void delBoard(int no) {
+		public boolean delBoard(String no) {
 			conn= getConnection();
 			try {
 				pstmt=conn.prepareStatement(sqlBoardDel);
-				pstmt.setInt(1, no);
-				rs=pstmt.executeQuery();
-				if(rs.next()) {
-				}
+				pstmt.setString(1, no);
+				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
+				return false;
 			}
+			return true;
 		}
 		
+		//게시글 조회수 ++
+		public boolean BoardView(String no,int viewCnt) {
+			conn= getConnection();
+			try {
+				pstmt=conn.prepareStatement(sqlBoardUpdateView);
+				pstmt.setInt(1, viewCnt+1);
+				pstmt.setString(2, no);
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+			return true;
+		}
+		//게시글 좋아요 클릭
+		public boolean BoardLike(String no,int likeCnt) {
+			conn= getConnection();
+			try {
+				pstmt=conn.prepareStatement(sqlBoardUpdateLike);
+				pstmt.setInt(1, likeCnt+1);
+				pstmt.setString(2, no);
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+			return true;
+		}
 		
 }

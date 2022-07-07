@@ -91,8 +91,9 @@
             </tbody>
         </table>
 
-		<input type="button" value="뒤로가기" onclick="main.jsp">
-        <input type="button" value="글쓰기" onclick="loginLogCk(<%=session.getAttribute("log")%>)">
+		<input type="button" value="뒤로가기" onclick="location.href='main.jsp'">
+		<input type="hidden" id="log" name="log" value="<%=(String)session.getAttribute("log")%>">
+        <input type="button" value="글쓰기" onclick="loginLogCk()">
     </div>
     <script src="script/board_validation.js"></script>
 </body>

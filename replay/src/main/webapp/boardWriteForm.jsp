@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/board.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <title>BOARD WRITE</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
         <form method="post" action="boardWriteFormPro.jsp">
             <input type="text" name="title" id="title" required placeholder="title"><br>
             <textarea name="contents" placeholder="contents text" required></textarea><br>
-            <input type="button" value="뒤로가기" onclick="board.jsp">
+            <input type="button" value="뒤로가기" onclick="location.href='board.jsp'">
             <input type="button" value="글쓰기" onclick="boardContentsCheck(form)">
         </form>
     </div>

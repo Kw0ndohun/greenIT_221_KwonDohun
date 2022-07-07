@@ -18,6 +18,10 @@
 	//라이트 폼에서 온 글쓰기 제목과 컨텐츠를 받아서 sql 보드 테이블에 넣어줘야함
 	//no를 어딘가에서 기억해서 늘려주고
 	//랜덤으로 코드 생성. ㄴㄴ 코드도 숫자 늘려주기
+	
+	request.setCharacterEncoding("UTF-8");
+    response.setCharacterEncoding("UTF-8");
+	
 		BoardDAO dao=BoardDAO.getInstance();
 		BoardDTO board=null;
 		LocalDateTime now = LocalDateTime.now();

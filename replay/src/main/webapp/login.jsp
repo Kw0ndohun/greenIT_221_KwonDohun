@@ -26,6 +26,7 @@
         	<input type="button" value="취소" onclick="location.href='lndex.jsp'">
         </div>
     </form>
+    <script src="script/board_validation.js"></script>
     <script src="script/validation.js"></script>
  </body>
 </html>

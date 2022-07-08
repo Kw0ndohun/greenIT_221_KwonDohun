@@ -26,7 +26,7 @@ public class BoardDAO {
 	
 	private String url="jdbc:mysql://localhost:3306/firstWeb";
 	private String user="root";
-	private String password="root";
+	private String password="12341";
 	
 	private String sqlBoardCnt="select count(*) from board";
 	private String sqlBoard="select * from board";

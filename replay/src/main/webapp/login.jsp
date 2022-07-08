@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>LOGIN</h1>
-    <form method="post" action="loginPro.jsp">
+    <form method="post" action="./login">
         <div class="contents">
         </div>
         <div class="buttons">

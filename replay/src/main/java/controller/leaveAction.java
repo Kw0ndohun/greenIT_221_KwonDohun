@@ -12,16 +12,16 @@ import reWeb.UserDAO;
 import reWeb.UserDTO;
 
 /**
- * Servlet implementation class LoginAction
+ * Servlet implementation class leaveAction
  */
-//@WebServlet("/LoginAction")
-public class LoginAction extends HttpServlet {
+//@WebServlet("/leaveAction")
+public class leaveAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAction() {
+    public leaveAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,15 +36,12 @@ public class LoginAction extends HttpServlet {
 		UserDAO dao=UserDAO.getInstance();
 		
 	    
-	    String id=request.getParameter("id");
-	    String pw=request.getParameter("pw");
-	    
-	    user=new UserDTO(id,pw);
 	    HttpSession session= request.getSession();
+	    String id=String.valueOf(session.getAttribute("log"));
 	    String url="";
-	    if(dao.loginUser(user)){
+	    if(dao.delUser(id)){
 	    	session.setAttribute("log",user.getId());
-	    	url="./mainR";
+	    	url="main.jsp";
 	    }
 	    else{
 	    	url="index.jsp";
@@ -61,11 +58,6 @@ public class LoginAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);
-		
-		
-	    
-	    
-		
 		
 	}
 

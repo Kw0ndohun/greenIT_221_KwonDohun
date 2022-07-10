@@ -11,7 +11,7 @@ function loginLogCk(){
 		alert("로그인이나 해");
 	}	
 	else{
-		location.href="boardWriteForm.jsp";
+		location.href="./boardWriteForm";
 	}
 }
 // 게시글 작성 후 글쓰기 완료시 내용이 비어있지 않은 지 체크.

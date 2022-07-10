@@ -6,22 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import reWeb.UserDAO;
-import reWeb.UserDTO;
+import reWeb.BoardDAO;
 
 /**
- * Servlet implementation class LoginAction
+ * Servlet implementation class boardDelAction
  */
-//@WebServlet("/LoginAction")
-public class LoginAction extends HttpServlet {
+//@WebServlet("/boardDelAction")
+public class boardDelAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAction() {
+    public boardDelAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,24 +30,19 @@ public class LoginAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		UserDTO user=null;
-		UserDAO dao=UserDAO.getInstance();
 		
-	    
-	    String id=request.getParameter("id");
-	    String pw=request.getParameter("pw");
-	    
-	    user=new UserDTO(id,pw);
-	    HttpSession session= request.getSession();
-	    String url="";
-	    if(dao.loginUser(user)){
-	    	session.setAttribute("log",user.getId());
-	    	url="./mainR";
-	    }
-	    else{
-	    	url="index.jsp";
-	    }
-	    request.getRequestDispatcher(url).forward(request, response);
+		
+		BoardDAO dao=BoardDAO.getInstance();
+		String no=request.getParameter("no");
+		
+		String url="";
+		if(dao.delBoard(no)){
+			url="./board";
+		}
+		else{
+			url="./boardView?no="+no;
+		}
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	/**
@@ -57,15 +50,9 @@ public class LoginAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//리퀘스트 리스폰스 인코딩을 지정
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);
-		
-		
-	    
-	    
-		
 		
 	}
 

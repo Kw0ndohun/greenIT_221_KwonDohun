@@ -12,7 +12,7 @@
     <h1>DOOOO BOARD</h1>
     <div class="formContainer">
  		<!-- 폼에 작성된 내용을 폼 프로로 보내서 검증 -->
-        <form method="post" action="boardWriteFormPro.jsp">
+        <form method="post" action="./boardW">
             <input type="text" name="title" id="title" required placeholder="title"><br>
             <textarea name="contents" placeholder="contents text" required></textarea><br>
             <input type="button" value="뒤로가기" onclick="location.href='board.jsp'">

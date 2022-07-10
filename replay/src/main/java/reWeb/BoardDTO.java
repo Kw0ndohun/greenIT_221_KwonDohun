@@ -4,7 +4,6 @@ import java.sql.Date;
 
 public class BoardDTO {
 	int no;
-	int code; 
 	String title; 
 	String contents; 
 	int viewCnt; 
@@ -36,13 +35,6 @@ public class BoardDTO {
 		this.no = no;
 	}
 
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
 
 	public String getTitle() {
 		return title;

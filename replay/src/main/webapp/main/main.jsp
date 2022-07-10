@@ -13,8 +13,8 @@
         <div class="contents">
         </div>
         <div class="buttons">
-        	<input type="button" value="회원탈퇴" onclick="location.href='leavePro.jsp'">
-        	<input type="button" value="게시판" onclick="location.href='board.jsp'">
+        	<input type="button" value="회원탈퇴" onclick="location.href='./leave'">
+        	<input type="button" value="게시판" onclick="location.href='./board'">
         </div>
     </form>
 	

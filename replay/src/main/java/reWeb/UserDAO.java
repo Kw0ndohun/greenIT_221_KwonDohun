@@ -28,7 +28,7 @@ public class UserDAO {
 	
 	private String sql="insert into users values(?,?,?,?,?,?,?,?)";
 	private String sqlSeach="select * from users where id=? AND password=?";
-	private String sqldelUser="delete * from users where id=?";
+	private String sqldelUser="delete from usersdb.users where id=?";
 	
 	
 	public Connection getConnection() {
@@ -94,7 +94,7 @@ public class UserDAO {
 		try {
 			pstmt=conn.prepareStatement(sqldelUser);
 			pstmt.setString(1, id);
-			rs=pstmt.executeQuery();
+			pstmt.executeUpdate();
 			if(rs.next()) {
 				conn=null;
 				return true;

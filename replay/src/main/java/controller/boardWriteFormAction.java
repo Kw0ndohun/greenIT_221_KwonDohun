@@ -1,27 +1,29 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import reWeb.UserDAO;
-import reWeb.UserDTO;
+import reWeb.BoardDAO;
+import reWeb.BoardDTO;
 
 /**
- * Servlet implementation class LoginAction
+ * Servlet implementation class boardWriteForm
  */
-//@WebServlet("/LoginAction")
-public class LoginAction extends HttpServlet {
+//@WebServlet("/boardWriteForm")
+public class boardWriteFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAction() {
+    public boardWriteFormAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,24 +34,24 @@ public class LoginAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		UserDTO user=null;
-		UserDAO dao=UserDAO.getInstance();
+		BoardDAO dao=BoardDAO.getInstance();
+		BoardDTO board=null;
+		LocalDateTime now = LocalDateTime.now();
+		String formatNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
+		String title=request.getParameter("title");
+		String contents=request.getParameter("contents");
 		
-	    
-	    String id=request.getParameter("id");
-	    String pw=request.getParameter("pw");
-	    
-	    user=new UserDTO(id,pw);
-	    HttpSession session= request.getSession();
-	    String url="";
-	    if(dao.loginUser(user)){
-	    	session.setAttribute("log",user.getId());
-	    	url="./mainR";
-	    }
-	    else{
-	    	url="index.jsp";
-	    }
-	    request.getRequestDispatcher(url).forward(request, response);
+		board=new BoardDTO(title,contents,formatNow);
+		
+		
+		String url="";
+		if(dao.addBoard(board)){
+			url="./board";
+		}
+		else{
+			url="./boardWriteForm";
+		}
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	/**
@@ -57,16 +59,10 @@ public class LoginAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//리퀘스트 리스폰스 인코딩을 지정
 		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		doGet(request, response);
-		
-		
-	    
-	    
-		
-		
+	    response.setCharacterEncoding("UTF-8");
+	    doGet(request, response);
+			
 	}
 
 }

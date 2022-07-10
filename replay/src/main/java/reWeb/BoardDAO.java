@@ -30,7 +30,8 @@ public class BoardDAO {
 	
 	private String sqlBoardCnt="select count(*) from board";
 	private String sqlBoard="select * from board";
-	private String sqlBoardDel="delete from board where no=?";
+//	private String sqlBoardDel="delete from board where no=?";
+	private String sqlBoardDel="delete from firstweb.board where no=?";
 	private String sqlBoardNo="select * from board where no=?";
 	private String sqlBoardUpdateTitle="update board set title=? where no=?";
 	private String sqlBoardUpdateContents="update board set contents=? where no=?";
@@ -221,6 +222,7 @@ public class BoardDAO {
 				e.printStackTrace();
 				return false;
 			}
+			System.out.println(2);
 			return true;
 		}
 		
@@ -240,6 +242,7 @@ public class BoardDAO {
 		}
 		//게시글 좋아요 클릭
 		public boolean BoardLike(String no,int likeCnt) {
+			System.out.println("좋아요!");
 			conn= getConnection();
 			try {
 				pstmt=conn.prepareStatement(sqlBoardUpdateLike);

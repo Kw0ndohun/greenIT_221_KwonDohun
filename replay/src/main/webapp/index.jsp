@@ -14,10 +14,10 @@
         <div class="contents">
         </div>
         <div class="buttons">
-        	<input type="button" value="로그인" onclick="location.href='login.jsp'">
+        	<input type="button" value="로그인" onclick="location.href='./loginR'">
         	<input type="button" value="로그아웃" onclick="location.href='logoutPro.jsp'">
-        	<input type="button" value="회원가입" onclick="location.href='join.jsp'">
-        	<input type="button" value="회원탈퇴" onclick="location.href='leavePro.jsp'">
+        	<input type="button" value="회원가입" onclick="location.href='./joinR'">
+        	<input type="button" value="회원탈퇴" onclick="location.href='./leave'">
         </div>
     </form>
 	

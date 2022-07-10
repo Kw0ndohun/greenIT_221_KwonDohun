@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>JOIN</h1>
-    <form method="post" action="joinPro.jsp">
+    <form method="post" action="./join">
         <div class="contents">
         	아이디<br>
         	<input type="text" class="idmsg" name="id" id="id" onblur="blurNulls(id)"><br>

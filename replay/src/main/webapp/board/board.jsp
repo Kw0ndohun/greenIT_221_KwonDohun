@@ -63,7 +63,7 @@
             	
             	//for(int n=pages-1; n<boardCnt; n++){
             		
-            String url="boardView.jsp";
+            String url="./boardView";
 			/*try {
         	conn= dao.getConnection();
 				pstmt=conn.prepareStatement(sqlBoard);
@@ -96,7 +96,7 @@
             </tbody>
         </table>
 
-		<input type="button" value="뒤로가기" onclick="location.href='main.jsp'">
+		<input type="button" value="뒤로가기" onclick="location.href='./mainR'">
 		<input type="hidden" id="log" name="log" value="<%=(String)session.getAttribute("log")%>">
         <input type="button" value="글쓰기" onclick="loginLogCk()">
     </div>
